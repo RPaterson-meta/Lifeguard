@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Sign In</h1>
+  <form action="" method="post" name="login">
+    <p>{{ form.l3_cc4_sprout1 }} l3-cc4-sprout1</p>
+    <p>{{ form.l3_cc4_sprout2 }} l3-cc4-sprout2</p>
+    <p>{{ form.l3_cc4_hstead1 }} l3-cc4-hstead1</p>
+    <p>{{ form.l3_cc4_hstead2 }} l3-cc4-hstead2</p>
+    <p>{{ form.l3_cc4_ralf1 }} l3-cc4-ralf1</p>
+    <p>{{ form.l3_cc4_ralf2 }} l3-cc4-ralf2</p>
+      <p>
+          Please enter your initials:<br>
+          {{ form.name() }}<br>
+          Please enter your reasons for booking the kit:<br>
+          {{ form.note() }}
+      </p>
+      <p><button class="btn-primary" role="input" type="submit">Request</button></p>
+  </form>
+{% endblock %} 

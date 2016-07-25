@@ -1,0 +1,112 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+header {
+  padding: 20px 0;
+}
+
+header .row,
+footer .row {
+  align-items: center;
+  display: flex;
+}
+
+header h1 {
+  font-weight: 700;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jumbotron {
+  align-items: center;
+  background-image: url('/static/images/clearwater.jpg');
+  color: #ffffff;
+  display: flex;
+  height: 100px;
+}
+
+.jumbotron h1 {
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+}
+
+.LG_EE {
+    color: #ffffff;
+}
+
+.LG_EE:hover {
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+.jumbotron h2 {
+  background-color: #000000;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.jumbotron h3 {
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+section .row img {
+  margin: 0 0 30px;
+  width: 100%;
+}
+
+.col-md-6 {
+  margin: 0 0 30px
+}
+
+
+.btn-transparent {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
+
+.btn-transparent:hover {
+  background: solid;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.btn-transparent:active {
+  border-color: #ffffff;
+  color: #000000;
+}
+
+footer {
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li img {
+  height: 32px;
+  width: 32px;
+}
+
+
+.dropdown-menu>li>a:hover {
+  background-color: #5bc0de;
+  color: #ffffff;
+}

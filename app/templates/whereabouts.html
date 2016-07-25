@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<link href="http://whereabouts/prod/styles/metacomEmbed.css?v=3" rel="stylesheet" type="text/css" />
+<link href="http://whereabouts/prod/styles/whereaboutsColors.css?v=3" rel="stylesheet" type="text/css" />
+
+<table class='metacomEmbedBoxTable'>
+  <thead>
+    <tr>
+      <th>Initials</th>
+      <th>Name</th>
+      {% for entry in table_date_headings %}
+        <th>{{ entry }}</th>
+      {% endfor %}  
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for row in table_data %}
+    <tr>
+      {% for data in row %}
+        <td class={{ data.style }}>{{ data.text }}</td>
+      {% endfor %} 
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
