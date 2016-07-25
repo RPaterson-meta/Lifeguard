@@ -3,7 +3,7 @@ import pypyodbc as pyodbc
 from app import app
 from app.views.viewfunctions import lifeguard_render
 
-TPR = {'initials': 'TPR', 'name': 'Tom Rees', 'payroll_id': 5349}
+TPR = {'initials': 'TPR', 'name': 'Thomas Rees', 'payroll_id': 5349}
 SL = {'initials': 'SL', 'name': 'Steve Lloyd', 'payroll_id': 164}
 NJ2 = {'initials': 'NJ2', 'name': 'Nicole Johnson', 'payroll_id': 511}
 RJP = {'initials': 'RJP', 'name': 'Ross Paterson', 'payroll_id': 1386}
@@ -15,8 +15,7 @@ TEAM = [TPR, SL, NJ2, RJP, NB]
 @app.route('/whereabouts')
 def whereabouts():
     dates = []
-    table_date_headings = []
-    table_data = []
+
     today = datetime.datetime.today()
     monday = today - datetime.timedelta(int(today.strftime('%w')))
 
@@ -26,18 +25,13 @@ def whereabouts():
             dates.append(day)
 
     date_from = str(dates[0].strftime('%Y-%m-%d'))
+    # database doesn't return final date
     date_to = dates[-1] + datetime.timedelta(1)
     date_to = str(date_to.strftime('%Y-%m-%d'))
 
-    for date in dates:
-        table_date_headings.append(date.strftime('%a %d %b'))
+    table_date_headings = get_date_headings(today, dates)
 
-    for person in TEAM:
-        row = []
-        row.append({'text': person['initials'], 'style': None})
-        row.append({'text': person['name'], 'style': None})
-        row += get_whereabouts(person['payroll_id'], date_from, date_to)
-        table_data.append(row)
+    table_data = generate_table_data(date_from, date_to)
 
     return lifeguard_render("whereabouts.html",
                             title='Whereabouts',
@@ -54,13 +48,53 @@ def get_whereabouts(payroll_id, date_from, date_to):
     result = cursor.execute(sql, params)
     wbts = []
     db_output = result.fetchall()
-
+    print(db_output)
     for i in range(0, len(db_output), 2):
-        entry = {'text': db_output[i][10][:3], 'style': 'state' + db_output[i][10].upper()}
+        entry = {}
+        morn = {'text': db_output[i][10][:3],
+                'style': 'state' + db_output[i][10].upper()}
+        aft = {'text': db_output[i + 1][10][:3],
+               'style': 'state' + db_output[i + 1][10].upper()}
 
-        if db_output[i + 1][10] != db_output[i][10]:
-            entry['text'] += '/' + db_output[i + 1][10][:3]
-            entry['style'] = 'state' + db_output[i + 1][10].upper()
+        if db_output[i][5].strftime('%a') == 'Fri':
+                entry['style'] = 'endOfWeek'
 
+        if morn['text'] != aft['text']:
+            entry['split'] = True
+            entry['morning'] = morn
+            entry['afternoon'] = aft
+        else:
+            entry['split'] = False
+            entry['day'] = aft
         wbts.append(entry)
     return wbts
+
+
+def get_date_headings(today, dates):
+    table_date_headings = []
+    for date in dates:
+        entry = {}
+        entry['text'] = date.strftime('%a %d %b')
+        entry['style'] = 'TH'
+        if date == today:
+            entry['style'] += ' today'
+        if 'Fri' in entry['text']:
+            entry['style'] += ' endOfWeek'
+        table_date_headings.append(entry)
+    return table_date_headings
+
+
+def generate_table_data(date_from, date_to):
+    table_data = []
+    for person in TEAM:
+        row = []
+        initials_entry = {'text': person[
+            'initials'], 'style': None}
+        name_entry = {'text': person['name'], 'style': None}
+        timezone_entry = {'text': 'Greenwich Mean Time (UTC)', 'style': None}
+        row.append({'day': initials_entry, 'split': False})
+        row.append({'day': name_entry, 'split': False})
+        row.append({'day': timezone_entry, 'split': False})
+        row += get_whereabouts(person['payroll_id'], date_from, date_to)
+        table_data.append(row)
+    return table_data

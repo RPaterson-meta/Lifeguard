@@ -8,8 +8,9 @@
     <tr>
       <th>Initials</th>
       <th>Name</th>
+      <th>Timezone</th>
       {% for entry in table_date_headings %}
-        <th>{{ entry }}</th>
+        <th class="{{ entry.style }}">{{ entry.text }}</th>
       {% endfor %}  
     </tr>
   </thead>
@@ -18,7 +19,15 @@
     {% for row in table_data %}
     <tr>
       {% for data in row %}
-        <td class={{ data.style }}>{{ data.text }}</td>
+        {% if data.split %}
+          <td class="{{ data.style }}">
+            <span class="{{ data.morning.style }}">{{ data.morning.text }}</span>
+            <nobr>/</nobr>
+            <span class="{{ data.afternoon.style }}">{{ data.afternoon.text }}</span>
+          </td>
+        {% else %}
+          <td class="{{ data.day.style }} {{ data.style }}">{{ data.day.text }}</td>
+        {% endif %}
       {% endfor %} 
     </tr>
     {% endfor %}
