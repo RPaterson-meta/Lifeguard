@@ -106,7 +106,8 @@ footer li img {
 }
 
 
-.dropdown-menu>li>a:hover {
+.dropdown-menu > li > a:hover {
   background-color: #5bc0de;
   color: #ffffff;
+  background-image: none;
 }

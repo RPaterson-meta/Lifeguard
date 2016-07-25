@@ -45,7 +45,7 @@ PENDING_ISSUES = {'name': 'Pending Issues',
 ########
 ORCHESTRATION = {
     'name': 'Orchestration',
-    'subtopics': []
+    'subtopics': [KIT_BOOKINGS]
 }
 
 TEAM = {

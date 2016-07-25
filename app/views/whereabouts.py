@@ -9,7 +9,7 @@ NJ2 = {'initials': 'NJ2', 'name': 'Nicole Johnson', 'payroll_id': 511}
 RJP = {'initials': 'RJP', 'name': 'Ross Paterson', 'payroll_id': 1386}
 NB = {'initials': 'NB', 'name': 'Neil Bruce', 'payroll_id': 361}
 
-TEAM = [TPR, SL, NJ2, RJP, NB]
+TEAM = [NJ2, SL, TPR, NB, RJP]
 
 
 @app.route('/whereabouts')
@@ -36,7 +36,8 @@ def whereabouts():
     return lifeguard_render("whereabouts.html",
                             title='Whereabouts',
                             table_date_headings=table_date_headings,
-                            table_data=table_data)
+                            table_data=table_data,
+                            image='/static/images/whereabouts.png')
 
 
 def get_whereabouts(payroll_id, date_from, date_to):
@@ -48,7 +49,6 @@ def get_whereabouts(payroll_id, date_from, date_to):
     result = cursor.execute(sql, params)
     wbts = []
     db_output = result.fetchall()
-    print(db_output)
     for i in range(0, len(db_output), 2):
         entry = {}
         morn = {'text': db_output[i][10][:3],

@@ -7,5 +7,4 @@ from app.views.viewfunctions import lifeguard_render
 def index():
     user = {'nickname': 'Miguel'}  # fake user
     return lifeguard_render("index.html",
-                            title='Home',
-                            user=user)
+                            title='Home')
