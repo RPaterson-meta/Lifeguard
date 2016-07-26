@@ -1,0 +1,5 @@
+.btn-primary.active,
+.btn-primary.active:focus{
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}

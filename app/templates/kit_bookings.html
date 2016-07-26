@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <script type="text/javascript" src="/static/scripts/kit_bookings_input.js"></script>
+  <script type="text/javascript" src="/static/scripts/checkbox.js"></script>
   <form action="" method="post" name="login" id="kit_booking_form">
 
   <div class="col-sm-12">
@@ -8,15 +9,21 @@
     <div class="col-sm-3">
       <h3>{{ deployment.name }}</h3>
       {% for node in deployment.nodes %}
-        <p id="{{ node.id }}"><input type="checkbox">{{ node.name }}</p>
+      <p>
+      <span class="button-checkbox">
+        <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
+        <input type="checkbox" id="{{ node.id }}" class="hidden" />
+      </span>
+      </p>
       {% endfor %}
     </div>
     {% endfor %}
   </div>
-
   <div class="col-sm-12">
   <hr>
   </div>
+
+
 
   <div id="initials_box" class="form-group col-sm-2">
     <p>
@@ -29,7 +36,7 @@
     </p>
   </div>
   <div class="col-sm-2" style="float: right">
-    <p><button type="button" class="btn btn-primary btn-outline" style="float: right">Request</button></p>
+    <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Request</button></p>
   </div>
   </form>
-{% endblock %} 
+{% endblock %}

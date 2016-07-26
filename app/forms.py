@@ -4,7 +4,6 @@ from wtforms.validators import DataRequired
 
 
 class KitBookingForm(Form):
-
     l3_cc_sprout1 = {'id': 'l3_cc_sprout1', 'name': 'Sprout 1'}
     l3_cc_sprout2 = {'id': 'l3_cc_sprout2', 'name': 'Sprout 2'}
     l3_cc_hstead1 = {'id': 'l3_cc_hstead1', 'name': 'Homestead 1'}
@@ -41,8 +40,8 @@ class KitBookingForm(Form):
 
     cc4 = {'nodes': [l3_cc4_sprout1, l3_cc4_sprout2, l3_cc4_hstead1, l3_cc4_hstead2, l3_cc4_ralf1, l3_cc4_ralf2], 'name': 'L3 CC4'}
 ####################################################################################################################################################
-    name = StringField('name', validators=[DataRequired()])
-    note = TextAreaField('note', validators=[DataRequired()])
+    name = StringField('name')
+    note = TextAreaField('note')
 
     deployments = [cc, cc2, cc3, cc4]
 
