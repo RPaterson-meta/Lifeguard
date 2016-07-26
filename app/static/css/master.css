@@ -2,3 +2,7 @@
 @import url(bootstrap-3.3.6-dist/css/bootstrap.css);
 @import url(base_style.css);
 @import url(bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.svg);
+@import url(bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.eot);
+@import url(bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.ttf);
+@import url(bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.woff2);
+@import url(bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.woff);

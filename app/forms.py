@@ -19,7 +19,6 @@ class KitBookingForm(Form):
     l3_cc3_ralf1 = BooleanField('l3_cc3_ralf1', default=False)
     l3_cc3_ralf2 = BooleanField('l3_cc3_ralf2', default=False)
 
-
     l3_cc_sprout1 = BooleanField('l3_cc_sprout1', default=False)
     l3_cc_sprout2 = BooleanField('l3_cc_sprout2', default=False)
     l3_cc_hstead1 = BooleanField('l3_cc_hstead1', default=False)
