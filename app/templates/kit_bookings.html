@@ -1,18 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-  <script type="text/javascript" src="/static/scripts/learning.js"></script>
+  <script type="text/javascript" src="/static/scripts/kit_bookings_input.js"></script>
   <form action="" method="post" name="login" id="kit_booking_form">
-  <div id="initials_box">
-  <p>
-    {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control form-control-success", style="width: 110px", id="initials_box_input_field") }}
-    </p>
+
+  <div class="col-sm-12">
+    {% for deployment in form.deployments %}
+    <div class="col-sm-3">
+      <h3>{{ deployment.name }}</h3>
+      {% for node in deployment.nodes %}
+        <p id="{{ node.id }}"><input type="checkbox">{{ node.name }}</p>
+      {% endfor %}
+    </div>
+    {% endfor %}
   </div>
-  <div id="note_box">
+
+  <div class="col-sm-12">
+  <hr>
+  </div>
+
+  <div id="initials_box" class="form-group col-sm-2">
     <p>
-      Please enter your reasons for booking the kit:<br>
-      {{ form.note(style="width: 800;max-width: 800px;height: 200px;max-height: 200px", autocomplete="off") }}
+      {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px", id="initials_box_input_field") }}
+      <span class="glyphicon form-control-feedback" id="initials_box_glyph" style="position: absolute; left:80px; top:0px;"></span>
     </p>
   </div>
-    <p><button class="btn btn-submit-outline" role="input type="submit">Request</button></p>
+  <div class="col-sm-10" style="display: inline;">
+    <p>{{ form.note(autocomplete="off", placeholder="Please enter your reasons for booking the kit", class="form-control reason-box") }}
+    </p>
+  </div>
+  <div class="col-sm-2" style="float: right">
+    <p><button type="button" class="btn btn-primary btn-outline" style="float: right">Request</button></p>
+  </div>
   </form>
 {% endblock %} 

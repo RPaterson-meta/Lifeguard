@@ -16,7 +16,7 @@ $(document).ready(function(){
         $("#initials_box_glyph").removeClass("glyphicon-warning-sign")
     });
     $("#initials_box").focusout(function(){
-        var initials = $("input").val();
+        var initials = $("#initials_box_input_field").val();
         if(team.indexOf(initials) > -1){
             $("#initials_box").addClass("has-success has-feedback");
             $("#initials_box_input_field").addClass("form-control-success")
