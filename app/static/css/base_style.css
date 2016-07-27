@@ -130,12 +130,12 @@ footer li img {
 
 .btn-primary.btn-outline:focus,
 .btn-primary.btn-outline:hover {
-    color:#ffffff;
     background-color: #5bc0de;
     border-color: #5bc0de;
+    color:#ffffff;
 }
 
 .btn-primary.btn-outline:active {
-    color:#ffffff;
     background-color: #5bc0ff;
+    color:#ffffff;
 }

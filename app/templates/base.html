@@ -36,6 +36,33 @@
         </nav>
       </div>
     </header>
+
+    {% with successes = get_flashed_messages(category_filter=["success"]) %}
+      {% if successes %}
+        <div class="alert alert-success">
+          <ul class=flashes>
+            <strong>Success!</strong>
+            {% for message in successes %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+      {% if errors %}
+        <div class="alert alert-danger">
+          <ul class=flashes>
+            <strong>Error!</strong>
+            {% for message in errors %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+
     <div class="container">
     {% if image %}
       <img src={{ image }}>

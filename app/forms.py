@@ -4,46 +4,61 @@ from wtforms.validators import DataRequired
 
 
 class KitBookingForm(Form):
-    l3_cc_sprout1 = {'id': 'l3_cc_sprout1', 'name': 'Sprout 1'}
-    l3_cc_sprout2 = {'id': 'l3_cc_sprout2', 'name': 'Sprout 2'}
-    l3_cc_hstead1 = {'id': 'l3_cc_hstead1', 'name': 'Homestead 1'}
-    l3_cc_hstead2 = {'id': 'l3_cc_hstead2', 'name': 'Homestead 2'}
-    l3_cc_ralf1 = {'id': 'l3_cc_ralf1', 'name': 'Ralf 1'}
-    l3_cc_ralf2 = {'id': 'l3_cc_ralf2', 'name': 'Ralf 2'}
-
-    cc = {'nodes': [l3_cc_sprout1, l3_cc_sprout2, l3_cc_hstead1, l3_cc_hstead2, l3_cc_ralf1, l3_cc_ralf2], 'name': 'L3 CC'}
-####################################################################################################################################################
-    l3_cc2_sprout1 = {'id': 'l3_cc2_sprout1', 'name': 'Sprout 1'}
-    l3_cc2_sprout2 = {'id': 'l3_cc2_sprout2', 'name': 'Sprout 2'}
-    l3_cc2_hstead1 = {'id': 'l3_cc2_hstead1', 'name': 'Homestead 1'}
-    l3_cc2_hstead2 = {'id': 'l3_cc2_hstead2', 'name': 'Homestead 2'}
-    l3_cc2_ralf1 = {'id': 'l3_cc2_ralf1', 'name': 'Ralf 1'}
-    l3_cc2_ralf2 = {'id': 'l3_cc2_ralf2', 'name': 'Ralf 2'}
-
-    cc2 = {'nodes': [l3_cc2_sprout1, l3_cc2_sprout2, l3_cc2_hstead1, l3_cc2_hstead2, l3_cc2_ralf1, l3_cc2_ralf2], 'name': 'L3 CC2'}
-####################################################################################################################################################
-    l3_cc3_sprout1 = {'id': 'l3_cc3_sprout1', 'name': 'Sprout 1'}
-    l3_cc3_sprout2 = {'id': 'l3_cc3_sprout2', 'name': 'Sprout 2'}
-    l3_cc3_hstead1 = {'id': 'l3_cc3_hstead1', 'name': 'Homestead 1'}
-    l3_cc3_hstead2 = {'id': 'l3_cc3_hstead2', 'name': 'Homestead 2'}
-    l3_cc3_ralf1 = {'id': 'l3_cc3_ralf1', 'name': 'Ralf 1'}
-    l3_cc3_ralf2 = {'id': 'l3_cc3_ralf2', 'name': 'Ralf 2'}
-
-    cc3 = {'nodes': [l3_cc3_sprout1, l3_cc3_sprout2, l3_cc3_hstead1, l3_cc3_hstead2, l3_cc3_ralf1, l3_cc3_ralf2], 'name': 'L3 CC3'}
-####################################################################################################################################################
-    l3_cc4_sprout1 = {'id': 'l3_cc4_sprout1', 'name': 'Sprout 1'}
-    l3_cc4_sprout2 = {'id': 'l3_cc4_sprout2', 'name': 'Sprout 2'}
-    l3_cc4_hstead1 = {'id': 'l3_cc4_hstead1', 'name': 'Homestead 1'}
-    l3_cc4_hstead2 = {'id': 'l3_cc4_hstead2', 'name': 'Homestead 2'}
-    l3_cc4_ralf1 = {'id': 'l3_cc4_ralf1', 'name': 'Ralf 1'}
-    l3_cc4_ralf2 = {'id': 'l3_cc4_ralf2', 'name': 'Ralf 2'}
-
-    cc4 = {'nodes': [l3_cc4_sprout1, l3_cc4_sprout2, l3_cc4_hstead1, l3_cc4_hstead2, l3_cc4_ralf1, l3_cc4_ralf2], 'name': 'L3 CC4'}
-####################################################################################################################################################
     name = StringField('name')
     note = TextAreaField('note')
 
-    deployments = [cc, cc2, cc3, cc4]
+    l3_cc_sprout1 = BooleanField('l3_cc_sprout1', default=False)
+    l3_cc_sprout2 = BooleanField('l3_cc_sprout2', default=False)
+    l3_cc_hstead1 = BooleanField('l3_cc_hstead1', default=False)
+    l3_cc_hstead2 = BooleanField('l3_cc_hstead2', default=False)
+    l3_cc_ralf1 = BooleanField('l3_cc_ralf1', default=False)
+    l3_cc_ralf2 = BooleanField('l3_cc_ralf2', default=False)
+
+####################################################################################################################################################
+    l3_cc2_sprout1 = BooleanField('l3_cc2_sprout1', default=False)
+    l3_cc2_sprout2 = BooleanField('l3_cc2_sprout2', default=False)
+    l3_cc2_hstead1 = BooleanField('l3_cc2_hstead1', default=False)
+    l3_cc2_hstead2 = BooleanField('l3_cc2_hstead2', default=False)
+    l3_cc2_ralf1 = BooleanField('l3_cc2_ralf1', default=False)
+    l3_cc2_ralf2 = BooleanField('l3_cc2_ralf2', default=False)
+
+####################################################################################################################################################
+    l3_cc3_sprout1 = BooleanField('l3_cc3_sprout1', default=False)
+    l3_cc3_sprout2 = BooleanField('l3_cc3_sprout2', default=False)
+    l3_cc3_hstead1 = BooleanField('l3_cc3_hstead1', default=False)
+    l3_cc3_hstead2 = BooleanField('l3_cc3_hstead2', default=False)
+    l3_cc3_ralf1 = BooleanField('l3_cc3_ralf1', default=False)
+    l3_cc3_ralf2 = BooleanField('l3_cc3_ralf2', default=False)
+
+####################################################################################################################################################
+    l3_cc4_sprout1 = BooleanField('l3_cc4_sprout1', default=False)
+    l3_cc4_sprout2 = BooleanField('l3_cc4_sprout2', default=False)
+    l3_cc4_hstead1 = BooleanField('l3_cc4_hstead1', default=False)
+    l3_cc4_hstead2 = BooleanField('l3_cc4_hstead2', default=False)
+    l3_cc4_ralf1 = BooleanField('l3_cc4_ralf1', default=False)
+    l3_cc4_ralf2 = BooleanField('l3_cc4_ralf2', default=False)
+
+####################################################################################################################################################
+
+    @property
+    def cc(self):
+        return {'name': 'L3-CC', 'nodes': [self.l3_cc_sprout1, self.l3_cc_sprout2, self.l3_cc_hstead1, self.l3_cc_hstead2, self.l3_cc_ralf1, self.l3_cc_ralf2]}
+
+    @property
+    def cc2(self):
+        return {'name': 'L3-cc2', 'nodes': [self.l3_cc2_sprout1, self.l3_cc2_sprout2, self.l3_cc2_hstead1, self.l3_cc2_hstead2, self.l3_cc2_ralf1, self.l3_cc2_ralf2]}
+
+    @property
+    def cc3(self):
+        return {'name': 'L3-cc3', 'nodes': [self.l3_cc3_sprout1, self.l3_cc3_sprout2, self.l3_cc3_hstead1, self.l3_cc3_hstead2, self.l3_cc3_ralf1, self.l3_cc3_ralf2]}
+
+    @property
+    def cc4(self):
+        return {'name': 'L3-cc4', 'nodes': [self.l3_cc4_sprout1, self.l3_cc4_sprout2, self.l3_cc4_hstead1, self.l3_cc4_hstead2, self.l3_cc4_ralf1, self.l3_cc4_ralf2]}
+
+    @property
+    def clearwater_deployments(self):
+        return [self.cc, self.cc2, self.cc3, self.cc4]
 
 
 class LoginForm(Form):
