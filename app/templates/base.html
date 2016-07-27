@@ -63,6 +63,19 @@
       {% endif %}
     {% endwith %}
 
+    {% with warnings = get_flashed_messages(category_filter=["warning"]) %}
+      {% if warnings %}
+        <div class="alert alert-warning">
+          <ul class=flashes>
+            <strong>Warning!</strong>
+            {% for message in warnings %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+
     <div class="container">
     {% if image %}
       <img src={{ image }}>

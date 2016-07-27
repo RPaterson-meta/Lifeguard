@@ -11,8 +11,13 @@
       {% for node in deployment.nodes %}
       <p>
       <span class="button-checkbox">
+      {% if not current_bookings[node.name] %}
         <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
         {{ node(class="hidden") }}
+      {% else %}
+        <button type="button" class="btn disabled" data-color="primary">{{ node.name }}</button>
+        {{ node(class="hidden", disabled="true") }}
+      {% endif %}
       </span>
       </p>
       {% endfor %}

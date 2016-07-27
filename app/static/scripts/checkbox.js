@@ -17,12 +17,14 @@ $(function () {
 
         // Event Handlers
         $button.on('click', function () {
-            $checkbox.prop('checked', !$checkbox.is(':checked'));
-            $checkbox.triggerHandler('change');
-            updateDisplay();
+            if(!($checkbox).prop('disabled')){
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+                $checkbox.triggerHandler('change');
+                updateDisplay();
+            }
         });
         $checkbox.on('change', function () {
-            updateDisplay();
+                updateDisplay();
         });
 
         // Actions
