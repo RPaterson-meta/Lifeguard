@@ -36,6 +36,7 @@ def log_kit_release(form):
                 if node.data:
                     bookings_ledger.write('\n' + node.name)
                     bookings_ledger.write(' - user=' + form.name.data)
+                    bookings_ledger.write(' - type=RELEASE')
                     bookings_ledger.write(' - note=' + form.note.data)
         bookings_ledger.write(
             '\nfurther_nodes_release_information: ' + str(form.note.data))

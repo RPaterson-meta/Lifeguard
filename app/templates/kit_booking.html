@@ -2,21 +2,25 @@
 {% block content %}
   <script type="text/javascript" src="/static/scripts/kit_booking_input.js"></script>
   <script type="text/javascript" src="/static/scripts/checkbox.js"></script>
-  <form action="" method="post" name="login" id="kit_booking_form">
+  
 
   <div class="col-sm-12">
     {% for deployment in form.clearwater_deployments %}
     <div class="col-sm-3">
-      <h3>{{ deployment.name }}</h3>
+    <span class="button-checkbox">
+      <button type="button" class="btn btn-xlg-check" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+      <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+      </span>
+      <form action="" method="post" name="login" id="kit_booking_form">
       {% for node in deployment.nodes %}
       <p>
       <span class="button-checkbox">
       {% if bookings[deployment.name]['nodes'][node.name]['available'] %}
-        <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
-        {{ node(class="hidden") }}
+        <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-{{ deployment.name }}-{{ node.name }}">{{ node.name }}</button>
+        {{ node(class="hidden", id="checkbox-"+deployment.name+"-"+node.name) }}
       {% else %}
-        <button type="button" class="btn disabled" data-color="primary">{{ node.name }}</button>
-        {{ node(class="hidden", disabled="true") }}
+        <button type="button" class="btn-indent btn disabled" data-color="primary">{{ node.name }}</button>
+        {{ node(class="hidden", disabled="true", id="checkbox-"+deployment.name+"-"+node.name) }}
       {% endif %}
       </span>
       </p>
@@ -30,10 +34,10 @@
 
 
 
-  <div id="initials_box" class="form-group col-sm-2">
+  <div id="initials_box-primary" class="form-group col-sm-2">
     <p>
-      {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px", id="initials_box_input_field") }}
-      <span class="glyphicon form-control-feedback" id="initials_box_glyph" style="position: absolute; left:80px; top:0px;"></span>
+      {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px", id="initials_box_input_field-primary") }}
+      <span class="glyphicon form-control-feedback" id="initials_box_glyph-primary" style="position: absolute; left:80px; top:0px;"></span>
     </p>
   </div>
   <div class="col-sm-10" style="display: inline;">

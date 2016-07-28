@@ -3,11 +3,10 @@
   <script type="text/javascript" src="/static/scripts/kit_booking_input.js"></script>
   <script type="text/javascript" src="/static/scripts/kit_release_button_links.js"></script>
   <script type="text/javascript" src="/static/scripts/checkbox.js"></script>
-  <form action="" method="post" name="login" id="kit_booking_form">
 
   <div class="container" id="deployment_buttons">
     <div class="col-sm-12" id="button-{{perimeta.name}}">
-      <button type="button" class="btn btn-{{ perimeta.state }} btn-block" style="float: center">{{ perimeta.name }}</button>
+      <button type="button" class="btn btn-{{ perimeta.state }} btn-block" style="float: center" title="PERIMETA WANTS TO EXIST">{{ perimeta.name }}</button>
     </div>
     {% for deployment_name in cc_deployment_names %}
       <div class="col-sm-6">
@@ -16,29 +15,37 @@
     {% endfor %}
   </div>
 
+  <p><button class="btn btn-primary btn-outline hidden" id="node_screen_back_button"><span class="glyphicon glyphicon-arrow-left"></span> Back</button></p>
   {% for deployment in form.clearwater_deployments %}
     <div class="container hidden" id="form-{{ deployment.name }}">
-      <!-- DO NOT FORGET TO REMOVE IF STATEMENT -->
-      <h3>{{ deployment.name }}</h3>
+
+      <div class="col-sm-12">
+        <span class="button-checkbox">
+          <button type="button" class="btn btn-xlg-check-not-full" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+          <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+        </span>
+      </div>
+
+      <form action="" method="post" name="login" id="kit_booking_form">
       <div class="col-sm-3" id="{{ deployment.name }}">
         {% for node in deployment.nodes %}
           <p>
             <span class="button-checkbox">
             {% if not cc_deployments[deployment.name]['nodes'][node.name]['available'] %}
-              <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
-              {{ node(class="hidden") }}
+              <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-{{ deployment.name }}-{{ node.name }}">{{ node.name }}</button>
+              {{ node(class="hidden", id="checkbox-"+deployment.name+"-"+node.name) }}
             {% else %}
-              <button type="button" class="btn disabled" data-color="primary">{{ node.name }}</button>
-              {{ node(class="hidden", disabled="true") }}
+              <button type="button" class="btn-indent btn disabled" data-color="primary">{{ node.name }}</button>
+              {{ node(class="hidden", disabled="true", id="checkbox-"+deployment.name+"-"+node.name) }}
             {% endif %}
             </span>
           </p>
         {% endfor %}
       </div>
-      <div id="initials_box" class="form-group col-sm-9">
+      <div id="initials_box-{{ deployment.name }}" class="form-group col-sm-9">
         <p>
-          {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field") }}
-          <span class="glyphicon form-control-feedback" id="initials_box_glyph" style="position: absolute; left:80px; top:0px;"></span>
+          {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-"+deployment.name) }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
         </p>
         <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box") }}
         </p>
@@ -46,7 +53,7 @@
           <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Release</button></p>
         </div>
       </div>
+      </form>
     </div>
   {% endfor %}
-</form>
 {% endblock %}

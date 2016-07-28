@@ -43,6 +43,7 @@ def log_kit_booking(form):
             for node in deployment['nodes']:
                 if node.data:
                     bookings_ledger.write('\n' + node.name)
+                    bookings_ledger.write(' - type=BOOKING')
                     bookings_ledger.write(' - user=' + form.name.data)
                     bookings_ledger.write(' - note=' + form.note.data)
         bookings_ledger.write(

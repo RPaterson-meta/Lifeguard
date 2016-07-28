@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"init",
+				"initials_box"
+			],
+			[
+				"form",
+				"form_id"
+			],
+			[
+				"cc",
+				"cc_deployment_names"
+			],
+			[
+				"bookings",
+				"bookings_ledger	withstmt"
+			],
+			[
+				"Kit",
+				"KitBookingForm	class"
+			],
+			[
+				"write",
+				"write_dictionary_to_file	import"
+			],
+			[
+				"afile",
+				"afilepath	param"
+			],
+			[
+				"input",
+				"input_dictionary	param"
+			],
+			[
+				"BORDER",
+				"border-color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"l3_cc3",
+				"l3_cc3_hstead3	statement"
+			],
+			[
+				"l3",
+				"l3_cc3_sprout3	statement"
+			],
+			[
+				"curren",
+				"current_owners	statement"
+			],
+			[
+				"booking",
+				"booking_state	withstmt"
+			],
+			[
+				"log",
+				"log_kit_booking	function"
+			],
+			[
+				"kit_book",
+				"kit_bookings_dict	function"
+			],
+			[
+				"current",
+				"current_bookings_lines	statement"
+			],
+			[
+				"l3_cc_",
+				"l3_cc_sprout1	statement"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
 				"date",
 				"date_to	param"
 			],
@@ -96,10 +180,6 @@
 				"background-color"
 			],
 			[
-				"back",
-				"background-image"
-			],
-			[
 				"li",
 				"li	Tag"
 			],
@@ -138,10 +218,6 @@
 			[
 				"exe",
 				"Executing"
-			],
-			[
-				"log",
-				"log_debug"
 			],
 			[
 				"displa",
@@ -412,10 +488,6 @@
 				"refresh_info_screen	function"
 			],
 			[
-				"current",
-				"current_screen	statement"
-			],
-			[
 				"current_",
 				"current_information_string	statement"
 			],
@@ -442,144 +514,40 @@
 			[
 				"node_name",
 				"node_name	statement"
-			],
-			[
-				"node_",
-				"node_version	statement"
-			],
-			[
-				"version_",
-				"version_information	statement"
-			],
-			[
-				"usr",
-				"usr_input	statement"
-			],
-			[
-				"exception",
-				"Exception"
-			],
-			[
-				"info",
-				"info_string"
-			],
-			[
-				"add",
-				"addstr"
-			],
-			[
-				"re",
-				"register_list"
-			],
-			[
-				"register",
-				"register_list"
-			],
-			[
-				"key_",
-				"KEY_LIST"
-			],
-			[
-				"REGISTER",
-				"register_list"
-			],
-			[
-				"un",
-				"unregister_func"
-			],
-			[
-				"name",
-				"name_string"
-			],
-			[
-				"infor",
-				"information_window	statement"
-			],
-			[
-				"heal",
-				"health_group"
-			],
-			[
-				"clust",
-				"cluster_name	statement"
-			],
-			[
-				"def",
-				"def	Function"
-			],
-			[
-				"healthy",
-				"is_healthy"
-			],
-			[
-				"haelth",
-				"health_group	statement"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/templates/base.html",
+			"file": "app/templates/kit_status.html",
 			"settings":
 			{
-				"buffer_size": 1582,
+				"buffer_size": 2751,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/static/css/master.css",
+			"file": "app/views/kit_status.py",
 			"settings":
 			{
-				"buffer_size": 214,
+				"buffer_size": 2341,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/static/css/base_style.css",
+			"file": "dictionary_setup.py",
 			"settings":
 			{
-				"buffer_size": 1445,
+				"buffer_size": 3801,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/viewfunctions.py",
+			"file": "app/static/scripts/kit_release_button_links.js",
 			"settings":
 			{
-				"buffer_size": 1759,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/forms.py",
-			"settings":
-			{
-				"buffer_size": 1706,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/static/scripts/learning.js",
-			"settings":
-			{
-				"buffer_size": 160,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/kit_bookings.py",
-			"settings":
-			{
-				"buffer_size": 377,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/kit_bookings.html",
-			"settings":
-			{
-				"buffer_size": 642,
+				"buffer_size": 561,
 				"line_ending": "Unix"
 			}
 		}
@@ -591,10 +559,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "",
+		"height": 196.0,
+		"last_filter": "java",
 		"selected_items":
 		[
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
 			[
 				"project",
 				"Project: Edit Project"
@@ -602,10 +578,6 @@
 			[
 				"pyth",
 				"Set Syntax: Python"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
 			],
 			[
 				"inst",
@@ -681,12 +653,26 @@
 	],
 	"file_history":
 	[
+		"/C/Users/rjp/Documents/l3dash/app/static/scripts/kit_booking_input.js",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_booking.py",
+		"/C/Users/rjp/Documents/l3dash/app/templates/base.html",
+		"/C/Users/rjp/Documents/l3dash/app/views/viewfunctions.py",
+		"/C/Users/rjp/Documents/l3dash/app/static/scripts/learning.js",
+		"/C/Users/rjp/Documents/l3dash/app/static/css/base_style.css",
+		"/C/Users/rjp/Documents/l3dash/app/forms.py",
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_booking.html",
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_status.html",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_status.py",
+		"/C/Users/rjp/Documents/l3dash/app/views/views.py",
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_bookings.html",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_bookings.py",
+		"/C/Users/rjp/Documents/l3dash/app/static/scripts/checkbox.js",
+		"/C/Users/rjp/Documents/l3dash/app/static/scripts/kit_bookings_input.js",
+		"/C/Users/rjp/Documents/l3dash/app/static/css/master.css",
+		"/C/Users/rjp/Documents/l3dash/app/static/css/checkbox.css",
 		"/C/Users/rjp/Documents/l3dash/app/templates/learning.js",
 		"/C/Users/rjp/Documents/l3dash/app/views/index.py",
 		"/C/Users/rjp/Documents/l3dash/app/static/css/bootstrap-3.3.6-dist/css/bootstrap.css",
-		"/C/Users/rjp/Documents/l3dash/app/views/kit_bookings.py",
-		"/C/Users/rjp/Documents/l3dash/app/static/css/master.css",
-		"/C/Users/rjp/Documents/l3dash/app/static/css/base_style.css",
 		"/C/Users/rjp/Documents/l3dash/app/templates/index.html",
 		"/C/Users/rjp/Documents/l3dash/l3dash.sublime-project",
 		"/C/Users/rjp/Documents/l3dash/app/templates/whereabouts.html",
@@ -694,13 +680,8 @@
 		"/C/Users/rjp/Documents/l3dash/app/templates/lifeguards.html",
 		"/C/Users/rjp/Documents/l3dash/app/views/EE.py",
 		"/C/Users/rjp/Documents/l3dash/.gitignore",
-		"/C/Users/rjp/Documents/l3dash/app/forms.py",
-		"/C/Users/rjp/Documents/l3dash/app/templates/base.html",
-		"/C/Users/rjp/Documents/l3dash/app/templates/kit_bookings.html",
 		"/C/Users/rjp/Documents/l3dash/config.py",
 		"/C/Users/rjp/Documents/l3dash/app/__init__.py",
-		"/C/Users/rjp/Documents/l3dash/app/views/views.py",
-		"/C/Users/rjp/Documents/l3dash/app/views/viewfunctions.py",
 		"/C/Users/rjp/Documents/l3dash/run.py",
 		"/C/Users/rjp/Documents/l3dash/app/templates/standard_page_template.html",
 		"/C/Users/rjp/Documents/l3dash/app/templates/login.html",
@@ -789,16 +770,30 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"<project>"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"form",
+			"btn-default",
+			"title",
+			"alert",
+			"form",
+			"bookings",
+			"False",
+			"self.",
+			"print",
+			"prop",
+			"cc",
+			"initials_box",
+			"});",
 			"BooleanField(\\(.*\\))",
 			"cc3",
 			"cc4",
@@ -913,20 +908,7 @@
 			"STATS_DICT",
 			"alive",
 			"()\n",
-			"stats_dictionar",
-			"oid",
-			"self.stats",
-			"LOG_LOCATION",
-			"info_dict",
-			"info_dict#",
-			"tablewindow",
-			"tablewiondow",
-			"re.",
-			"ETCD",
-			"write_status",
-			"health_gro",
-			"health_addition",
-			"health_group"
+			"stats_dictionar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -934,6 +916,13 @@
 		"regex": true,
 		"replace_history":
 		[
+			"cc_deployments",
+			"True",
+			"",
+			"cc4",
+			"cc3",
+			"cc2",
+			"reason_box",
 			"{'input': BooleanField$1, 'name': 'STRING'}",
 			"{'input': BooleanField[$1], 'name': 'STRING'}",
 			"cc",
@@ -997,19 +986,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/templates/base.html",
+					"file": "app/templates/kit_status.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1582,
+						"buffer_size": 2751,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1238,
-								1238
+								1422,
+								1422
 							]
 						],
 						"settings":
@@ -1017,7 +1006,7 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 24.0,
+						"translation.y": 794.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1025,159 +1014,48 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/static/css/master.css",
+					"file": "app/views/kit_status.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 214,
+						"buffer_size": 2341,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								212,
-								212
+								1663,
+								1623
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/static/css/base_style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1445,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1286,
-								1286
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1363.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/viewfunctions.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1759,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1321,
-								1321
-							]
-						],
-						"settings":
-						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
-						"translation.x": 0.0,
-						"translation.y": 789.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/forms.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1706,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								758,
-								758
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 13.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/static/scripts/learning.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 160,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160,
-								160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 8.0,
+						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/views/kit_bookings.py",
+					"buffer": 2,
+					"file": "dictionary_setup.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 377,
+						"buffer_size": 3801,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								171,
-								171
+								2686,
+								2693
 							]
 						],
 						"settings":
@@ -1185,10 +1063,10 @@
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 529.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1198,25 +1076,25 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
-					"file": "app/templates/kit_bookings.html",
+					"buffer": 3,
+					"file": "app/static/scripts/kit_release_button_links.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 642,
+						"buffer_size": 561,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								189,
-								189
+								556,
+								556
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1256,7 +1134,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.48617091489,
 			1.0
 		],
 		"rows":
@@ -1288,20 +1166,84 @@
 		"selected_items":
 		[
 			[
+				"kit",
+				"static\\scripts\\kit_booking_input.js"
+			],
+			[
+				"bas",
+				"templates\\base.html"
+			],
+			[
+				"function",
+				"views\\viewfunctions.py"
+			],
+			[
 				"js",
 				"static\\scripts\\learning.js"
 			],
 			[
-				"kit",
-				"views\\kit_bookings.py"
+				"css",
+				"static\\css\\base_style.css"
+			],
+			[
+				"fo",
+				"forms.py"
+			],
+			[
+				"kit_b",
+				"views\\kit_booking.py"
+			],
+			[
+				"",
+				"views\\viewfunctions.py"
+			],
+			[
+				"form",
+				"forms.py"
+			],
+			[
+				"views",
+				"views\\views.py"
+			],
+			[
+				"view",
+				"views\\viewfunctions.py"
+			],
+			[
+				"fun",
+				"views\\viewfunctions.py"
+			],
+			[
+				"checkbox",
+				"static\\scripts\\checkbox.js"
+			],
+			[
+				"base",
+				"templates\\base.html"
+			],
+			[
+				"f",
+				"forms.py"
+			],
+			[
+				"mast",
+				"static\\css\\master.css"
+			],
+			[
+				"mas",
+				"static\\css\\master.css"
+			],
+			[
+				"base.",
+				"templates\\base.html"
+			],
+			[
+				"forms",
+				"forms.py"
 			],
 			[
 				"boot",
 				"static\\css\\bootstrap-3.3.6-dist\\css\\bootstrap.css"
-			],
-			[
-				"css",
-				"static\\css\\base_style.css"
 			],
 			[
 				"master",
@@ -1316,20 +1258,12 @@
 				"templates\\index.html"
 			],
 			[
-				"forms",
-				"app\\forms.py"
-			],
-			[
 				"life",
 				"app\\templates\\lifeguards.html"
 			],
 			[
 				"e",
 				"app\\views\\EE.py"
-			],
-			[
-				"base",
-				"app\\templates\\base.html"
 			],
 			[
 				"functions",
@@ -1348,20 +1282,8 @@
 				"config.py"
 			],
 			[
-				"views",
-				"app\\views\\views.py"
-			],
-			[
-				"view",
-				"app\\views\\viewfunctions.py"
-			],
-			[
 				"run",
 				"run.py"
-			],
-			[
-				"",
-				"UI_prototype.py"
 			]
 		],
 		"width": 0.0

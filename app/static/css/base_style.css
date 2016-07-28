@@ -119,9 +119,9 @@ footer li img {
 
 .btn-outline {
     background-color: transparent;
+    border-color: #5bc0de;
     color: inherit;
     transition: all .5s;
-    border-color: #5bc0de
 }
 
 .btn-primary.btn-outline {
@@ -141,9 +141,9 @@ footer li img {
 }
 
 .btn-block{
+    font-size: 30;
     height: 100px;
     margin: 20px;
-    font-size: 30;
 }
 .btn-success{
     background-color: #8CC152;
@@ -158,4 +158,50 @@ footer li img {
 .btn-danger{
     background-color: #DA4453;
     border-color: #DA4453;
+}
+
+.btn-xlg-check {
+    background-color: #333;
+    color: #fff;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 10;
+    margin-top: 10;
+    width: 100%;
+}
+
+.btn-xlg-check:focus,
+.btn-xlg-check:active,
+.btn-xlg-check:hover {
+    background-color: #333;
+    color: #fff;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 10;
+    width: 100%;
+}
+
+.btn-xlg-check-not-full {
+    background-color: #333;
+    color: #fff;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 10;
+    margin-top: 10;
+    width: 20%;
+}
+
+.btn-xlg-check-not-full:focus,
+.btn-xlg-check-not-full:active,
+.btn-xlg-check-not-full:hover {
+    background-color: #333;
+    color: #fff;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 10;
+    width: 20%;
+}
+
+.btn-indent {
+    margin-left: 20;
 }
