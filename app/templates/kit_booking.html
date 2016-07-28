@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <script type="text/javascript" src="/static/scripts/kit_bookings_input.js"></script>
+  <script type="text/javascript" src="/static/scripts/kit_booking_input.js"></script>
   <script type="text/javascript" src="/static/scripts/checkbox.js"></script>
   <form action="" method="post" name="login" id="kit_booking_form">
 
@@ -11,7 +11,7 @@
       {% for node in deployment.nodes %}
       <p>
       <span class="button-checkbox">
-      {% if not current_bookings[node.name] %}
+      {% if bookings[deployment.name]['nodes'][node.name]['available'] %}
         <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
         {{ node(class="hidden") }}
       {% else %}

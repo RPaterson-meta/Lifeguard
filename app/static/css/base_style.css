@@ -139,3 +139,23 @@ footer li img {
     background-color: #5bc0ff;
     color:#ffffff;
 }
+
+.btn-block{
+    height: 100px;
+    margin: 20px;
+    font-size: 30;
+}
+.btn-success{
+    background-color: #8CC152;
+    border-color: #8CC152;
+}
+
+.btn-warning{
+    background-color: #F6BB42;
+    border-color: #F6BB42;
+}
+
+.btn-danger{
+    background-color: #DA4453;
+    border-color: #DA4453;
+}

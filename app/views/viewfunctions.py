@@ -1,4 +1,5 @@
 from flask import render_template
+import ast
 ##########################################################################
 # SUBTOPICS
 ###########
@@ -6,9 +7,12 @@ from flask import render_template
 MANAGE_NODES = {'name': 'Manage Nodes',
                 'location': '/#'
                 }
-KIT_BOOKINGS = {'name': 'Kit Bookings',
-                'location': '/kit_bookings'
-                }
+KIT_BOOKING = {'name': 'Kit Booking',
+               'location': '/kit_booking'
+               }
+KIT_STATUS = {'name': 'Kit Status',
+              'location': '/kit_status'
+              }
 #################
 # TEAM
 WHEREABOUTS = {'name': 'Whereabouts',
@@ -45,7 +49,7 @@ PENDING_ISSUES = {'name': 'Pending Issues',
 ########
 ORCHESTRATION = {
     'name': 'Orchestration',
-    'subtopics': [KIT_BOOKINGS]
+    'subtopics': [KIT_BOOKING, KIT_STATUS]
 }
 
 TEAM = {
@@ -63,7 +67,7 @@ ISSUES = {
     'subtopics': []
 }
 
-################################################################################
+##########################################################################
 # HEADINGS
 ##########
 HEADINGS = [ORCHESTRATION, TEAM, BUILDS, ISSUES]
@@ -71,3 +75,14 @@ HEADINGS = [ORCHESTRATION, TEAM, BUILDS, ISSUES]
 
 def lifeguard_render(*args, **kwargs):
     return render_template(*args, head_links=HEADINGS, **kwargs)
+
+
+def write_dictionary_to_file(input_dictionary, afilepath):
+    with open(afilepath, 'w') as afile:
+        afile.write(str(input_dictionary))
+
+
+def read_dictionary_from_file(afilepath):
+    with open(afilepath, 'r') as afile:
+        file_str = afile.read()
+    return ast.literal_eval(file_str)

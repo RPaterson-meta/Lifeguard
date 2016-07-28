@@ -44,19 +44,19 @@ class KitBookingForm(Form):
 
     @property
     def cc(self):
-        return {'name': 'L3-cc', 'nodes': [self.l3_cc_sprout1, self.l3_cc_sprout2, self.l3_cc_hstead1, self.l3_cc_hstead2, self.l3_cc_ralf1, self.l3_cc_ralf2]}
+        return {'name': 'l3_cc', 'nodes': [self.l3_cc_sprout1, self.l3_cc_sprout2, self.l3_cc_hstead1, self.l3_cc_hstead2, self.l3_cc_ralf1, self.l3_cc_ralf2]}
 
     @property
     def cc2(self):
-        return {'name': 'L3-cc2', 'nodes': [self.l3_cc2_sprout1, self.l3_cc2_sprout2, self.l3_cc2_hstead1, self.l3_cc2_hstead2, self.l3_cc2_ralf1, self.l3_cc2_ralf2]}
+        return {'name': 'l3_cc2', 'nodes': [self.l3_cc2_sprout1, self.l3_cc2_sprout2, self.l3_cc2_hstead1, self.l3_cc2_hstead2, self.l3_cc2_ralf1, self.l3_cc2_ralf2]}
 
     @property
     def cc3(self):
-        return {'name': 'L3-cc3', 'nodes': [self.l3_cc3_sprout1, self.l3_cc3_sprout2, self.l3_cc3_sprout3, self.l3_cc3_hstead1, self.l3_cc3_hstead2, self.l3_cc3_hstead3, self.l3_cc3_ralf1, self.l3_cc3_ralf2]}
+        return {'name': 'l3_cc3', 'nodes': [self.l3_cc3_sprout1, self.l3_cc3_sprout2, self.l3_cc3_sprout3, self.l3_cc3_hstead1, self.l3_cc3_hstead2, self.l3_cc3_hstead3, self.l3_cc3_ralf1, self.l3_cc3_ralf2]}
 
     @property
     def cc4(self):
-        return {'name': 'L3-cc4', 'nodes': [self.l3_cc4_sprout1, self.l3_cc4_sprout2, self.l3_cc4_hstead1, self.l3_cc4_hstead2, self.l3_cc4_ralf1, self.l3_cc4_ralf2]}
+        return {'name': 'l3_cc4', 'nodes': [self.l3_cc4_sprout1, self.l3_cc4_sprout2, self.l3_cc4_hstead1, self.l3_cc4_hstead2, self.l3_cc4_ralf1, self.l3_cc4_ralf2]}
 
     @property
     def clearwater_deployments(self):
