@@ -36,13 +36,15 @@ def book_kit(form):
 
 
 def log_kit_booking(form):
-    with open('/home/clearwater/rjp/l3dash/clearwater_kit.log', 'w') as bookings_ledger:
+    with open('/home/clearwater/rjp/l3dash/clearwater_kit.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nBOOKING')
         bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
         for deployment in form.clearwater_deployments:
             for node in deployment['nodes']:
                 if node.data:
                     bookings_ledger.write('\n' + node.name)
+                    bookings_ledger.write(' - user=' + form.name.data)
+                    bookings_ledger.write(' - note=' + form.note.data)
         bookings_ledger.write(
             '\nfurther_nodes_use_information: ' + str(form.note.data))
         bookings_ledger.write('\n')

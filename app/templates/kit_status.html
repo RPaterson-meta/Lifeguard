@@ -1,11 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col-sm-12" id="button-{{perimeta.name}}">
-  <button type="button" class="btn btn-{{ perimeta.state }} btn-block" style="float: center">{{ perimeta.name }}</button>
-</div>
-{% for deployment in cc_deployments %}
-  <div class="col-sm-6" id="button-{{deployment.name }}">
-    <button type="button" class="btn btn-{{ deployment.state }} btn-block">{{ deployment.name }}</button>
+  <script type="text/javascript" src="/static/scripts/kit_booking_input.js"></script>
+  <script type="text/javascript" src="/static/scripts/kit_release_button_links.js"></script>
+  <script type="text/javascript" src="/static/scripts/checkbox.js"></script>
+  <form action="" method="post" name="login" id="kit_booking_form">
+
+  <div class="container" id="deployment_buttons">
+    <div class="col-sm-12" id="button-{{perimeta.name}}">
+      <button type="button" class="btn btn-{{ perimeta.state }} btn-block" style="float: center">{{ perimeta.name }}</button>
+    </div>
+    {% for deployment_name in cc_deployment_names %}
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-{{ cc_deployments[deployment_name].state }} btn-block" id="cc_deployment_button-{{ cc_deployments[deployment_name].name }}">{{ cc_deployments[deployment_name].name }}</button>
+      </div>
+    {% endfor %}
   </div>
-{% endfor %}
-{% endblock %} 
+
+  {% for deployment in form.clearwater_deployments %}
+    <div class="container hidden" id="form-{{ deployment.name }}">
+      <!-- DO NOT FORGET TO REMOVE IF STATEMENT -->
+      <h3>{{ deployment.name }}</h3>
+      <div class="col-sm-3" id="{{ deployment.name }}">
+        {% for node in deployment.nodes %}
+          <p>
+            <span class="button-checkbox">
+            {% if not cc_deployments[deployment.name]['nodes'][node.name]['available'] %}
+              <button type="button" class="btn" data-color="primary">{{ node.name }}</button>
+              {{ node(class="hidden") }}
+            {% else %}
+              <button type="button" class="btn disabled" data-color="primary">{{ node.name }}</button>
+              {{ node(class="hidden", disabled="true") }}
+            {% endif %}
+            </span>
+          </p>
+        {% endfor %}
+      </div>
+      <div id="initials_box" class="form-group col-sm-9">
+        <p>
+          {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field") }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph" style="position: absolute; left:80px; top:0px;"></span>
+        </p>
+        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box") }}
+        </p>
+        <div class="col-sm-2" style="float: right">
+          <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Release</button></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</form>
+{% endblock %}
