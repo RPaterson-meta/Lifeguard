@@ -10,20 +10,26 @@
     </div>
     {% for deployment_name in cc_deployment_names %}
       <div class="col-sm-6">
-        <button type="button" class="btn btn-{{ cc_deployments[deployment_name].state }} btn-block" id="cc_deployment_button-{{ cc_deployments[deployment_name].name }}">{{ cc_deployments[deployment_name].name }}</button>
+        <button type="button" class="btn btn-{{ cc_deployment_bookings[deployment_name].state }} btn-block" id="cc_deployment_button-{{ cc_deployment_bookings[deployment_name].name }}">{{ cc_deployment_bookings[deployment_name].name }}</button>
       </div>
     {% endfor %}
   </div>
 
-  <p><button class="btn btn-primary btn-outline hidden" id="node_screen_back_button"><span class="glyphicon glyphicon-arrow-left"></span> Back</button></p>
+  <p><button class="btn btn-primary btn-outline hidden" style="display: inline" id="node_screen_back_button"><span class="glyphicon glyphicon-arrow-left"></span> Back</button>
   {% for deployment in form.clearwater_deployments %}
     <div class="container hidden" id="form-{{ deployment.name }}">
-
+      <h2>Release Kit</h2>
       <div class="col-sm-12">
         <span class="button-checkbox">
-          <button type="button" class="btn btn-xlg-check-not-full" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
-          <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+          {% if not cc_deployment_bookings[deployment['name']]['fully_unbooked'] %}
+            <button type="button" class="btn btn-xlg-check-not-full" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+          {% else %}
+            <button type="button" class="btn btn-xlg-check-not-full disabled" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" disabled="true" id="select_all_checkbox-{{ deployment.name }}">
+          {% endif %}
         </span>
+
       </div>
 
       <form action="" method="post" name="login" id="kit_booking_form">
@@ -31,7 +37,7 @@
         {% for node in deployment.nodes %}
           <p>
             <span class="button-checkbox">
-            {% if not cc_deployments[deployment.name]['nodes'][node.name]['available'] %}
+            {% if not cc_deployment_bookings[deployment.name]['nodes'][node.name]['available'] %}
               <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-{{ deployment.name }}-{{ node.name }}">{{ node.name }}</button>
               {{ node(class="hidden", id="checkbox-"+deployment.name+"-"+node.name) }}
             {% else %}

@@ -86,3 +86,29 @@ def read_dictionary_from_file(afilepath):
     with open(afilepath, 'r') as afile:
         file_str = afile.read()
     return ast.literal_eval(file_str)
+
+
+def store_kit_bookings(input_dictionary):
+    write_dictionary_to_file(input_dictionary, '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+
+
+def get_kit_bookings():
+    return read_dictionary_from_file('/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+
+
+def update_deployment_availability(deployment, bookings):
+    node_availability = []
+    for node in deployment['nodes']:
+        node_availability.append(bookings[deployment['name']]['nodes'][node.name]['available'])
+
+    bookings[deployment['name']]['fully_unbooked'] = False not in node_availability
+    print(bookings[deployment['name']]['fully_unbooked'])
+
+    has_some_available = True in node_availability
+
+    if bookings[deployment['name']]['fully_unbooked']:
+        bookings[deployment['name']]['state'] = 'success'
+    elif has_some_available:
+        bookings[deployment['name']]['state'] = 'warning'
+    else:
+        bookings[deployment['name']]['state'] = 'danger'

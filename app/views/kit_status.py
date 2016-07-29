@@ -1,6 +1,6 @@
 from app import app
 from flask import request, flash, redirect
-from app.views.viewfunctions import lifeguard_render, read_dictionary_from_file, write_dictionary_to_file
+from app.views.viewfunctions import lifeguard_render, get_kit_bookings, store_kit_bookings, update_deployment_availability
 from app.forms import KitBookingForm
 
 
@@ -10,19 +10,17 @@ def kit_status():
     if request.method == 'POST' and form.name.data:
         release_kit(form)
         flash('Kit released by ' + str(form.name.data), 'success')
-        return redirect('/index')
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
 
-    cc_deployments = read_dictionary_from_file(
-        '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
-    cc_deployment_names = sorted(cc_deployments.keys())
+    cc_deployment_bookings = get_kit_bookings()
+    cc_deployment_names = sorted(cc_deployment_bookings.keys())
 
     perimeta = {'name': 'L3 Perimeta', 'state': 'success'}
     return lifeguard_render("kit_status.html",
                             title='Kit Status',
                             form=form,
-                            cc_deployments=cc_deployments,
+                            cc_deployment_bookings=cc_deployment_bookings,
                             cc_deployment_names=cc_deployment_names,
                             perimeta=perimeta)
 
@@ -45,11 +43,10 @@ def log_kit_release(form):
 
 def release_kit(form):
     log_kit_release(form)
-    bookings = read_dictionary_from_file(
-        '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+    bookings = get_kit_bookings()
     for deployment in form.clearwater_deployments:
         for node in deployment['nodes']:
             if node.data:
                 bookings[deployment['name']]['nodes'][node.name]['available'] = True
-    write_dictionary_to_file(
-        bookings, '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+        update_deployment_availability(deployment, bookings)
+    store_kit_bookings(bookings)

@@ -1,6 +1,6 @@
 from app import app
 from flask import redirect, request, flash
-from app.views.viewfunctions import lifeguard_render, write_dictionary_to_file, read_dictionary_from_file
+from app.views.viewfunctions import lifeguard_render, store_kit_bookings, get_kit_bookings, update_deployment_availability
 from app.forms import KitBookingForm
 
 
@@ -14,8 +14,7 @@ def kit_booking():
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
 
-    bookings = read_dictionary_from_file(
-        '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+    bookings = get_kit_bookings()
 
     return lifeguard_render('kit_booking.html',
                             title='Kit Booking',
@@ -25,14 +24,15 @@ def kit_booking():
 
 def book_kit(form):
     log_kit_booking(form)
-    bookings = read_dictionary_from_file(
-        '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+    bookings = get_kit_bookings()
     for deployment in form.clearwater_deployments:
+
         for node in deployment['nodes']:
             if node.data:
-                bookings[deployment['name']]['nodes'][node.name]['available'] = False
-    write_dictionary_to_file(
-        bookings, '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+                bookings[deployment['name']]['nodes'][
+                    node.name]['available'] = False
+        update_deployment_availability(deployment, bookings)
+    store_kit_bookings(bookings)
 
 
 def log_kit_booking(form):

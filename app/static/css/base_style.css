@@ -181,6 +181,13 @@ footer li img {
     width: 100%;
 }
 
+.btn-xlg-check.disabled:focus,
+.btn-xlg-check.disabled:active,
+.btn-xlg-check.disabled:hover {
+    color: #333;
+}
+
+
 .btn-xlg-check-not-full {
     background-color: #333;
     color: #fff;
@@ -200,6 +207,12 @@ footer li img {
     font-weight: bold;
     margin-bottom: 10;
     width: 20%;
+}
+
+.btn-xlg-check-not-full.disabled:focus,
+.btn-xlg-check-not-full.disabled:active,
+.btn-xlg-check-not-full.disabled:hover {
+    color: #333;
 }
 
 .btn-indent {

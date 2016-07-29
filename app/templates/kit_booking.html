@@ -8,8 +8,14 @@
     {% for deployment in form.clearwater_deployments %}
     <div class="col-sm-3">
     <span class="button-checkbox">
-      <button type="button" class="btn btn-xlg-check" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
-      <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+      {% if bookings[deployment['name']]['fully_unbooked'] %}
+        <button type="button" class="btn btn-xlg-check" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+        <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
+      {% else %}
+        <button type="button" class="btn btn-xlg-check disabled" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
+        <input type="checkbox" class="hidden" disabled="true" id="select_all_checkbox-{{ deployment.name }}">
+      {% endif %}
+
       </span>
       <form action="" method="post" name="login" id="kit_booking_form">
       {% for node in deployment.nodes %}
