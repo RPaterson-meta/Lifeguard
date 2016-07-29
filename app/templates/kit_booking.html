@@ -8,7 +8,8 @@
     {% for deployment in form.clearwater_deployments %}
     <div class="col-sm-3">
     <span class="button-checkbox">
-      {% if bookings[deployment['name']]['fully_unbooked'] %}
+
+      {% if not bookings[deployment['name']]['fully_booked'] %}
         <button type="button" class="btn btn-xlg-check" data-color="primary" id="select_all_button-{{ deployment.name }}">{{ deployment.name }}</button>
         <input type="checkbox" class="hidden" id="select_all_checkbox-{{ deployment.name }}">
       {% else %}

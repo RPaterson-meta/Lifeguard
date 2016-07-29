@@ -49,7 +49,7 @@ PENDING_ISSUES = {'name': 'Pending Issues',
 ########
 ORCHESTRATION = {
     'name': 'Orchestration',
-    'subtopics': [KIT_STATUS, KIT_BOOKING]
+    'subtopics': [KIT_STATUS]
 }
 
 TEAM = {
@@ -102,7 +102,7 @@ def update_deployment_availability(deployment, bookings):
         node_availability.append(bookings[deployment['name']]['nodes'][node.name]['available'])
 
     bookings[deployment['name']]['fully_unbooked'] = False not in node_availability
-    print(bookings[deployment['name']]['fully_unbooked'])
+    bookings[deployment['name']]['fully_booked'] = True not in node_availability
 
     has_some_available = True in node_availability
 

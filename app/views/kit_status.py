@@ -1,26 +1,26 @@
 from app import app
-from flask import request, flash, redirect
+from flask import request, flash
 from app.views.viewfunctions import lifeguard_render, get_kit_bookings, store_kit_bookings, update_deployment_availability
-from app.forms import KitBookingForm
+from app.forms import ClearwaterKitBookingForm
 
 
 @app.route('/kit_status', methods=['GET', 'POST'])
 def kit_status():
-    form = KitBookingForm()
+    form = ClearwaterKitBookingForm()
     if request.method == 'POST' and form.name.data:
         release_kit(form)
         flash('Kit released by ' + str(form.name.data), 'success')
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
 
-    cc_deployment_bookings = get_kit_bookings()
-    cc_deployment_names = sorted(cc_deployment_bookings.keys())
+    bookings = get_kit_bookings()
+    cc_deployment_names = sorted(bookings['clearwater'].keys())
 
     perimeta = {'name': 'L3 Perimeta', 'state': 'success'}
     return lifeguard_render("kit_status.html",
                             title='Kit Status',
                             form=form,
-                            cc_deployment_bookings=cc_deployment_bookings,
+                            bookings=bookings,
                             cc_deployment_names=cc_deployment_names,
                             perimeta=perimeta)
 

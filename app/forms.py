@@ -3,7 +3,7 @@ from wtforms import StringField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired
 
 
-class KitBookingForm(Form):
+class ClearwaterKitBookingForm(Form):
     name = StringField('name')
     note = TextAreaField('note')
 
@@ -14,7 +14,7 @@ class KitBookingForm(Form):
     l3_cc_ralf1 = BooleanField('l3_cc_ralf1', default=False)
     l3_cc_ralf2 = BooleanField('l3_cc_ralf2', default=False)
 
-####################################################################################################################################################
+##########################################################################
     l3_cc2_sprout1 = BooleanField('l3_cc2_sprout1', default=False)
     l3_cc2_sprout2 = BooleanField('l3_cc2_sprout2', default=False)
     l3_cc2_hstead1 = BooleanField('l3_cc2_hstead1', default=False)
@@ -22,7 +22,7 @@ class KitBookingForm(Form):
     l3_cc2_ralf1 = BooleanField('l3_cc2_ralf1', default=False)
     l3_cc2_ralf2 = BooleanField('l3_cc2_ralf2', default=False)
 
-####################################################################################################################################################
+##########################################################################
     l3_cc3_sprout1 = BooleanField('l3_cc3_sprout1', default=False)
     l3_cc3_sprout2 = BooleanField('l3_cc3_sprout2', default=False)
     l3_cc3_sprout3 = BooleanField('l3_cc3_sprout3', default=False)
@@ -32,7 +32,7 @@ class KitBookingForm(Form):
     l3_cc3_ralf1 = BooleanField('l3_cc3_ralf1', default=False)
     l3_cc3_ralf2 = BooleanField('l3_cc3_ralf2', default=False)
 
-####################################################################################################################################################
+##########################################################################
     l3_cc4_sprout1 = BooleanField('l3_cc4_sprout1', default=False)
     l3_cc4_sprout2 = BooleanField('l3_cc4_sprout2', default=False)
     l3_cc4_hstead1 = BooleanField('l3_cc4_hstead1', default=False)
@@ -40,7 +40,36 @@ class KitBookingForm(Form):
     l3_cc4_ralf1 = BooleanField('l3_cc4_ralf1', default=False)
     l3_cc4_ralf2 = BooleanField('l3_cc4_ralf2', default=False)
 
-####################################################################################################################################################
+##########################################################################
+
+    @property
+    def form_nodes(self):
+        return [self.l3_cc_sprout1,
+                self.l3_cc_sprout2,
+                self.l3_cc_hstead1,
+                self.l3_cc_hstead2,
+                self.l3_cc_ralf1,
+                self.l3_cc_ralf2,
+                self.l3_cc2_sprout1,
+                self.l3_cc2_sprout2,
+                self.l3_cc2_hstead1,
+                self.l3_cc2_hstead2,
+                self.l3_cc2_ralf1,
+                self.l3_cc2_ralf2,
+                self.l3_cc3_sprout1,
+                self.l3_cc3_sprout2,
+                self.l3_cc3_sprout3,
+                self.l3_cc3_hstead1,
+                self.l3_cc3_hstead2,
+                self.l3_cc3_hstead3,
+                self.l3_cc3_ralf1,
+                self.l3_cc3_ralf2,
+                self.l3_cc4_sprout1,
+                self.l3_cc4_sprout2,
+                self.l3_cc4_hstead1,
+                self.l3_cc4_hstead2,
+                self.l3_cc4_ralf1,
+                self.l3_cc4_ralf2]
 
     @property
     def cc(self):
