@@ -135,4 +135,5 @@ if __name__ == '__main__':
 
     bookings = {"clearwater": clearwater, 'volte': volte}
     write_dictionary_to_file(
-        bookings, os.path.dirname(__file__) + 'clearwater_kit_state.txt')
+        bookings, os.path.dirname(__file__) + '/clearwater_kit_state.txt')
+    print(os.path.dirname(__file__) + '/clearwater_kit_state.txt')
