@@ -2,6 +2,8 @@ from app import app
 from flask import request, flash
 from app.views.viewfunctions import lifeguard_render, get_kit_bookings, store_kit_bookings, update_deployment_availability
 from app.forms import ClearwaterKitBookingForm
+import datetime
+import os
 
 
 @app.route('/kit_management', methods=['GET', 'POST'])
@@ -26,7 +28,7 @@ def kit_status():
 
 
 def log_kit_release(form):
-    with open('/home/clearwater/rjp/l3dash/clearwater_kit.log', 'a') as bookings_ledger:
+    with open(os.path.dirname(__file__) + '/../../logs/clearwater_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nRELEASE')
         bookings_ledger.write('\nreleaser_of_the_nodes: ' + form.name.data)
         for deployment in form.clearwater_deployments:

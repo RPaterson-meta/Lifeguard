@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"release",
+				"release_or_book"
+			],
+			[
+				"has",
+				"has_some_available	statement"
+			],
+			[
+				"has_some_avail",
+				"has_some_available"
+			],
+			[
 				"node",
 				"node_availability	statement"
 			],
@@ -502,68 +514,80 @@
 			[
 				"generate",
 				"generate_initial_screen"
-			],
-			[
-				"genera",
-				"generate_info_screen"
-			],
-			[
-				"information",
-				"information_string	param"
-			],
-			[
-				"resurre",
-				"resurrect"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/templates/kit_booking.html",
-			"settings":
-			{
-				"buffer_size": 2614,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "dictionary_setup.py",
-			"settings":
-			{
-				"buffer_size": 3821,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "l3dash.sublime-project",
-			"settings":
-			{
-				"buffer_size": 299,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/views/viewfunctions.py",
 			"settings":
 			{
-				"buffer_size": 3130,
+				"buffer_size": 3199,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/templates/kit_status.html",
+			"file": "app/views/kit_management.py",
 			"settings":
 			{
-				"buffer_size": 3869,
+				"buffer_size": 2210,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/kit_status.py",
+			"file": "app/views/kit_booking.py",
 			"settings":
 			{
-				"buffer_size": 2202,
+				"buffer_size": 2453,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/kit_booking.html",
+			"settings":
+			{
+				"buffer_size": 206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/views.py",
+			"settings":
+			{
+				"buffer_size": 74,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/static/scripts/kit_release_button_links.js",
+			"settings":
+			{
+				"buffer_size": 1546,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/static/scripts/kit_booking_input.js",
+			"settings":
+			{
+				"buffer_size": 2822,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/kit_management.html",
+			"settings":
+			{
+				"buffer_size": 7470,
 				"line_ending": "Unix"
 			}
 		}
@@ -669,15 +693,20 @@
 	],
 	"file_history":
 	[
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_booking.html",
+		"/C/Users/rjp/Documents/l3dash/app/forms.py",
+		"/C/Users/rjp/Documents/l3dash/dictionary_setup.py",
+		"/C/Users/rjp/Documents/l3dash/app/views/index.py",
+		"/C/Users/rjp/Documents/l3dash/app/views/viewfunctions.py",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_booking.py",
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_management.html",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_management.py",
+		"/C/Users/rjp/Documents/clearwater/CC_node_decommission_tool/clearwater-decommission.sh",
+		"/C/Users/rjp/Documents/l3dash/app/views/kit_status.py",
+		"/C/Users/rjp/Documents/l3dash/app/templates/kit_status.html",
+		"/C/Users/rjp/Documents/l3dash/l3dash.sublime-project",
 		"/C/Users/rjp/Documents/l3dash/app/static/scripts/checkbox.js",
 		"/C/Users/rjp/Documents/l3dash/app/static/css/base_style.css",
-		"/C/Users/rjp/Documents/l3dash/app/templates/kit_status.html",
-		"/C/Users/rjp/Documents/l3dash/app/forms.py",
-		"/C/Users/rjp/Documents/l3dash/app/templates/kit_booking.html",
-		"/C/Users/rjp/Documents/l3dash/dictionary_setup.py",
-		"/C/Users/rjp/Documents/l3dash/app/views/kit_status.py",
-		"/C/Users/rjp/Documents/l3dash/app/views/kit_booking.py",
-		"/C/Users/rjp/Documents/l3dash/app/views/viewfunctions.py",
 		"/C/Users/rjp/Documents/l3dash/app/static/scripts/kit_release_button_links.js",
 		"/C/Users/rjp/Documents/l3dash/app/static/scripts/kit_booking_input.js",
 		"/C/Users/rjp/Documents/l3dash/app/templates/base.html",
@@ -689,10 +718,8 @@
 		"/C/Users/rjp/Documents/l3dash/app/static/css/master.css",
 		"/C/Users/rjp/Documents/l3dash/app/static/css/checkbox.css",
 		"/C/Users/rjp/Documents/l3dash/app/templates/learning.js",
-		"/C/Users/rjp/Documents/l3dash/app/views/index.py",
 		"/C/Users/rjp/Documents/l3dash/app/static/css/bootstrap-3.3.6-dist/css/bootstrap.css",
 		"/C/Users/rjp/Documents/l3dash/app/templates/index.html",
-		"/C/Users/rjp/Documents/l3dash/l3dash.sublime-project",
 		"/C/Users/rjp/Documents/l3dash/app/templates/whereabouts.html",
 		"/C/Users/rjp/Documents/l3dash/app/views/whereabouts.py",
 		"/C/Users/rjp/Documents/l3dash/app/templates/lifeguards.html",
@@ -704,7 +731,6 @@
 		"/C/Users/rjp/Documents/l3dash/app/templates/standard_page_template.html",
 		"/C/Users/rjp/Documents/l3dash/app/templates/login.html",
 		"/C/Users/rjp/Documents/l3dash/app/static/base_style.css",
-		"/C/Users/rjp/Documents/clearwater/CC_node_decommission_tool/clearwater-decommission.sh",
 		"/C/Users/rjp/Documents/clearwater/prototypes/snmpy.py",
 		"/C/Users/rjp/Documents/clearwater/prototypes/viewers.py",
 		"/C/Users/rjp/Documents/clearwater/prototypes/checkers.py",
@@ -799,6 +825,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"{% if not bookings[deployment[",
+			"if not bookings[",
+			"IF NOT BOOKINGS[DEP",
+			"checked",
+			"checked=\"false\"",
+			"checked=\"false\",",
+			"checked=\"false\", ",
+			"checkbox",
+			"checked=",
+			"product",
+			"ACTION",
+			">\n",
+			"checkbox-",
+			"\");\n",
+			"initials_box_input_field",
+			"initials_box-",
+			"book",
+			"release",
+			"select_all_button",
+			"select_all",
+			"\"checkbox-",
+			"attr",
+			"bookings['clearwater']",
+			"cc_deployment_bookings",
+			"print",
 			"available",
 			"toggle",
 			"back",
@@ -901,39 +952,15 @@
 			"write_status",
 			"data",
 			"write_information",
-			"wipe_info",
-			"information_window",
-			"InformationBox",
-			"informationbox",
-			"scrollablewindow",
-			"information_window",
-			"informationBox",
-			"press   to quit",
-			"+ 10",
-			"Checker",
-			"ordered",
-			"re.search",
-			"found node",
-			"logger.inf",
-			"health_group.update(",
-			"write_information",
-			"def update(",
-			"def update()",
-			"update()",
-			"health_group",
-			"health_group.",
-			"information_window",
-			"informationBox",
-			"statuswindow",
-			"healthgroup",
-			"health_group"
+			"wipe_info"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"bookings['clearwater']",
 			"fully_unbooked",
 			"cc_deployment_bookings",
 			"deployment",
@@ -1002,29 +1029,57 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/templates/kit_booking.html",
+					"file": "app/views/viewfunctions.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2614,
+						"buffer_size": 3199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1030,
-								1030
+								630,
+								630
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/kit_management.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								598,
+								598
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1034,20 +1089,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "dictionary_setup.py",
+					"buffer": 2,
+					"file": "app/views/kit_booking.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3821,
+						"buffer_size": 2453,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2217,
-								2217
+								921,
+								921
 							]
 						],
 						"settings":
@@ -1055,32 +1110,60 @@
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 520.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "l3dash.sublime-project",
+					"buffer": 3,
+					"file": "app/templates/kit_booking.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 299,
+						"buffer_size": 206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								275,
-								275
+								206,
+								206
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/views/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 74,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1090,92 +1173,112 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/views/viewfunctions.py",
+					"buffer": 5,
+					"file": "app/templates/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3130,
+						"buffer_size": 206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2836,
-								2836
+								0,
+								206
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 4.0,
-						"translation.y": 1321.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "app/templates/kit_status.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3869,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2582,
-								2582
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 111.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/views/kit_status.py",
+					"buffer": 6,
+					"file": "app/static/scripts/kit_release_button_links.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2202,
+						"buffer_size": 1546,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1240,
-								1240
+								543,
+								543
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 179.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/static/scripts/kit_booking_input.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1630,
+								1630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 130.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/templates/kit_management.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3952,
+								3952
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 722.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -1201,18 +1304,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.4734375,
 			1.0
 		],
 		"rows":
@@ -1244,32 +1340,88 @@
 		"selected_items":
 		[
 			[
-				"functions",
-				"views\\viewfunctions.py"
+				"kit",
+				"app\\templates\\kit_booking.html"
 			],
 			[
-				"kit",
-				"templates\\kit_booking.html"
+				"kit_book",
+				"app\\templates\\kit_booking.html"
+			],
+			[
+				"inde",
+				"app\\templates\\index.html"
+			],
+			[
+				"kith",
+				"app\\templates\\kit_management.html"
+			],
+			[
+				"ki_m",
+				"app\\templates\\kit_management.html"
+			],
+			[
+				"views",
+				"app\\views\\views.py"
+			],
+			[
+				"function",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"",
+				"app\\views\\kit_management.py"
+			],
+			[
+				"kit_bookin",
+				"app\\views\\kit_booking.py"
+			],
+			[
+				"func",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"js",
+				"app\\static\\scripts\\kit_booking_input.js"
+			],
+			[
+				"ind",
+				"app\\views\\index.py"
+			],
+			[
+				"form",
+				"app\\forms.py"
+			],
+			[
+				"kit_status",
+				"app\\views\\kit_status.py"
+			],
+			[
+				"html",
+				"app\\templates\\kit_status.html"
+			],
+			[
+				"status",
+				"app\\views\\kit_status.py"
+			],
+			[
+				"kitbook",
+				"app\\views\\kit_booking.py"
+			],
+			[
+				"dic",
+				"dictionary_setup.py"
+			],
+			[
+				"functions",
+				"views\\viewfunctions.py"
 			],
 			[
 				"stat",
 				"templates\\kit_status.html"
 			],
 			[
-				"js",
-				"static\\scripts\\checkbox.js"
-			],
-			[
 				"kit_st",
 				"views\\kit_status.py"
-			],
-			[
-				"func",
-				"views\\viewfunctions.py"
-			],
-			[
-				"form",
-				"forms.py"
 			],
 			[
 				"kit_boo",
@@ -1300,10 +1452,6 @@
 				"templates\\kit_booking.html"
 			],
 			[
-				"html",
-				"templates\\kit_booking.html"
-			],
-			[
 				"kitjs",
 				"static\\scripts\\kit_booking_input.js"
 			],
@@ -1312,24 +1460,12 @@
 				"templates\\base.html"
 			],
 			[
-				"function",
-				"views\\viewfunctions.py"
-			],
-			[
 				"fo",
 				"forms.py"
 			],
 			[
 				"kit_b",
 				"views\\kit_booking.py"
-			],
-			[
-				"",
-				"views\\viewfunctions.py"
-			],
-			[
-				"views",
-				"views\\views.py"
 			],
 			[
 				"view",
@@ -1378,10 +1514,6 @@
 			[
 				"in",
 				"views\\index.py"
-			],
-			[
-				"inde",
-				"templates\\index.html"
 			],
 			[
 				"life",
@@ -1435,7 +1567,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 137.0,
 	"status_bar_visible": true,
 	"template_settings":

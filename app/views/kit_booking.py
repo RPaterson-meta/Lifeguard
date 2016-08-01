@@ -2,6 +2,8 @@ from app import app
 from flask import redirect, request, flash
 from app.views.viewfunctions import lifeguard_render, store_kit_bookings, get_kit_bookings, update_deployment_availability
 from app.forms import ClearwaterKitBookingForm
+import datetime
+import os
 
 
 @app.route('/kit_booking', methods=['POST'])
@@ -33,7 +35,8 @@ def book_kit(form):
 
 
 def log_kit_booking(form):
-    with open('/home/clearwater/rjp/l3dash/clearwater_kit.log', 'a') as bookings_ledger:
+
+    with open(os.path.dirname(__file__) + '/../../logs/clearwater_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nBOOKING')
         bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
         for deployment in form.clearwater_deployments:
@@ -52,7 +55,6 @@ def generate_tooltip(form):
     name = form.name.data
     note = form.note.data
     other_nodes = [node.name for node in form.form_nodes if node.data]
-
     rtn_string = '<p style="font-weight: bold;">Booked by: </p><p>' + name.upper() + '</p>'
     rtn_string += '<p style="font-weight: bold;">Nodes booked:' + '</p>'
     for node in other_nodes:

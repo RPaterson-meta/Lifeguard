@@ -1,5 +1,6 @@
 from flask import render_template
 import ast
+import os
 ##########################################################################
 # SUBTOPICS
 ###########
@@ -89,11 +90,11 @@ def read_dictionary_from_file(afilepath):
 
 
 def store_kit_bookings(input_dictionary):
-    write_dictionary_to_file(input_dictionary, '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+    write_dictionary_to_file(input_dictionary, os.path.dirname(__file__) + '/../../clearwater_kit_state.txt')
 
 
 def get_kit_bookings():
-    return read_dictionary_from_file('/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+    return read_dictionary_from_file(os.path.dirname(__file__) + '/../../clearwater_kit_state.txt')
 
 
 def update_deployment_availability(product, deployment, bookings):
