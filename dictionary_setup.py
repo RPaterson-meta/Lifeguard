@@ -1,4 +1,7 @@
 #!flask/bin/python
+import os
+
+
 def write_dictionary_to_file(input_dictionary, afilepath):
     with open(afilepath, 'w') as afile:
         afile.write(str(input_dictionary))
@@ -132,4 +135,4 @@ if __name__ == '__main__':
 
     bookings = {"clearwater": clearwater, 'volte': volte}
     write_dictionary_to_file(
-        bookings, '/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
+        bookings, os.path.dirname(__file__) + '/../../logs/clearwater_kit_state.txt')
