@@ -10,16 +10,9 @@ def kit_booking():
     if request.method == 'POST' and form.name.data:
         book_kit(form)
         flash('Kit booked for ' + str(form.name.data), 'success')
-        return redirect('/index')
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
-
-    bookings = get_kit_bookings()
-
-    return lifeguard_render('kit_booking.html',
-                            title='Kit Booking',
-                            form=form,
-                            bookings=bookings)
+    return redirect('/kit_management')
 
 
 def book_kit(form):
@@ -30,12 +23,12 @@ def book_kit(form):
 
         for node in deployment['nodes']:
             if node.data:
-                bookings[deployment['name']]['nodes'][
+                bookings['clearwater'][deployment['name']]['nodes'][
                     node.name]['available'] = False
-                bookings[deployment['name']]['nodes'][
+                bookings['clearwater'][deployment['name']]['nodes'][
                     node.name]['tooltip'] = generate_tooltip(form)
 
-            update_deployment_availability(deployment, bookings)
+            update_deployment_availability('clearwater', deployment, bookings)
     store_kit_bookings(bookings)
 
 

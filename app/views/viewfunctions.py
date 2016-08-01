@@ -10,8 +10,8 @@ MANAGE_NODES = {'name': 'Manage Nodes',
 KIT_BOOKING = {'name': 'Kit Booking',
                'location': '/kit_booking'
                }
-KIT_STATUS = {'name': 'Kit Status',
-              'location': '/kit_status'
+KIT_STATUS = {'name': 'Kit Management',
+              'location': '/kit_management'
               }
 #################
 # TEAM
@@ -96,19 +96,19 @@ def get_kit_bookings():
     return read_dictionary_from_file('/home/clearwater/rjp/l3dash/clearwater_kit_state.txt')
 
 
-def update_deployment_availability(deployment, bookings):
+def update_deployment_availability(product, deployment, bookings):
     node_availability = []
     for node in deployment['nodes']:
-        node_availability.append(bookings[deployment['name']]['nodes'][node.name]['available'])
+        node_availability.append(bookings[product][deployment['name']]['nodes'][node.name]['available'])
 
-    bookings[deployment['name']]['fully_unbooked'] = False not in node_availability
-    bookings[deployment['name']]['fully_booked'] = True not in node_availability
+    bookings[product][deployment['name']]['fully_unbooked'] = False not in node_availability
+    bookings[product][deployment['name']]['fully_booked'] = True not in node_availability
 
     has_some_available = True in node_availability
 
-    if bookings[deployment['name']]['fully_unbooked']:
-        bookings[deployment['name']]['state'] = 'success'
+    if bookings[product][deployment['name']]['fully_unbooked']:
+        bookings[product][deployment['name']]['state'] = 'success'
     elif has_some_available:
-        bookings[deployment['name']]['state'] = 'warning'
+        bookings[product][deployment['name']]['state'] = 'warning'
     else:
-        bookings[deployment['name']]['state'] = 'danger'
+        bookings[product][deployment['name']]['state'] = 'danger'

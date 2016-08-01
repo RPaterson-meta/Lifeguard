@@ -4,7 +4,7 @@ from app.views.viewfunctions import lifeguard_render, get_kit_bookings, store_ki
 from app.forms import ClearwaterKitBookingForm
 
 
-@app.route('/kit_status', methods=['GET', 'POST'])
+@app.route('/kit_management', methods=['GET', 'POST'])
 def kit_status():
     form = ClearwaterKitBookingForm()
     if request.method == 'POST' and form.name.data:
@@ -17,8 +17,8 @@ def kit_status():
     cc_deployment_names = sorted(bookings['clearwater'].keys())
 
     perimeta = {'name': 'L3 Perimeta', 'state': 'success'}
-    return lifeguard_render("kit_status.html",
-                            title='Kit Status',
+    return lifeguard_render("kit_management.html",
+                            title='Kit Management',
                             form=form,
                             bookings=bookings,
                             cc_deployment_names=cc_deployment_names,
@@ -33,8 +33,8 @@ def log_kit_release(form):
             for node in deployment['nodes']:
                 if node.data:
                     bookings_ledger.write('\n' + node.name)
-                    bookings_ledger.write(' - user=' + form.name.data)
                     bookings_ledger.write(' - type=RELEASE')
+                    bookings_ledger.write(' - user=' + form.name.data)
                     bookings_ledger.write(' - note=' + form.note.data)
         bookings_ledger.write(
             '\nfurther_nodes_release_information: ' + str(form.note.data))
@@ -47,6 +47,6 @@ def release_kit(form):
     for deployment in form.clearwater_deployments:
         for node in deployment['nodes']:
             if node.data:
-                bookings[deployment['name']]['nodes'][node.name]['available'] = True
-        update_deployment_availability(deployment, bookings)
+                bookings['clearwater'][deployment['name']]['nodes'][node.name]['available'] = True
+        update_deployment_availability('clearwater', deployment, bookings)
     store_kit_bookings(bookings)
