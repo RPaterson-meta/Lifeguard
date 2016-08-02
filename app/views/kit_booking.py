@@ -91,7 +91,7 @@ def book_clearwater_kit(form):
                 bookings['clearwater'][deployment['name']]['nodes'][
                     node.name]['available'] = False
                 bookings['clearwater'][deployment['name']]['nodes'][
-                    node.name]['tooltip'] = generate_clearwater_tooltip(form)
+                    node.name]['tooltip'] = generate_tooltip(form)
 
             update_deployment_availability('clearwater', deployment, bookings)
     store_kit_bookings(bookings)
@@ -108,7 +108,7 @@ def book_volte_kit(form):
                 bookings['volte'][deployment['name']]['nodes'][
                     node.name]['available'] = False
                 bookings['volte'][deployment['name']]['nodes'][
-                    node.name]['tooltip'] = generate_clearwater_tooltip(form)
+                    node.name]['tooltip'] = generate_tooltip(form)
 
             update_deployment_availability('volte', deployment, bookings)
     store_kit_bookings(bookings)
@@ -148,7 +148,7 @@ def log_volte_kit_booking(form):
         bookings_ledger.write('\n')
 
 
-def generate_clearwater_tooltip(form):
+def generate_tooltip(form):
     name = form.name.data
     note = form.note.data
     other_nodes = [node.name for node in form.form_nodes if node.data]
@@ -206,8 +206,8 @@ def book_perimeta_kit(form):
     store_kit_bookings(bookings)
 
 
-def log_kit_release(form):
-    with open(os.path.dirname(__file__) + '/../../logs/clearwater_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
+def log_kit_release(form, product='clearwater'):
+    with open(os.path.dirname(__file__) + '/../../logs/' + product + '_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nRELEASE: ' + datetime.datetime.today().strftime("%d/%m/%Y  %H:%M:%S"))
         bookings_ledger.write('\nreleaser_of_the_nodes: ' + form.name.data)
         for deployment in form.deployments:
@@ -234,7 +234,7 @@ def release_clearwater_kit(form):
 
 
 def release_volte_kit(form):
-    log_kit_release(form)
+    log_kit_release(form, product='volte')
     bookings = get_kit_bookings()
     for deployment in form.deployments:
         for node in deployment['nodes']:
