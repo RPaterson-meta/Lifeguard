@@ -14,12 +14,16 @@
 <!-- TOP LEVEL BUTTONS -->
 
   <div class="container" id="deployment_buttons">
-    <div class="col-sm-12" id="button-{{perimeta.name}}">
-      <button type="button" class="btn btn-{{ perimeta.state }} btn-block" style="float: center" title="PERIMETA IS BEING ADDED">{{ perimeta.name }}</button>
+    <div class="col-sm-12" id="button-{{ bookings['perimeta']['name'] }}">
+    {% if bookings['perimeta']['available'] %}
+      <button type="button" class="btn btn-success btn-block" style="float: center" title="L3 Perimeta" data-html="true" data-toggle="popover" data-content="{{ bookings['perimeta']['tooltip'] }}" data-trigger="hover" data-container="body" data-placement="top" id="deployment_button-perimeta">{{ bookings['perimeta']['name'] }}</button>
+    {% else %}
+      <button type="button" class="btn btn-danger btn-block" style="float: center" title="L3 Perimeta" data-html="true" data-toggle="popover" data-content="{{ bookings['perimeta']['tooltip'] }}" data-trigger="hover" data-container="body" data-placement="top" id="deployment_button-perimeta">{{ bookings['perimeta']['name'] }}</button>
+    {% endif %}
     </div>
     {% for deployment_name in cc_deployment_names %}
       <div class="col-sm-6">
-        <button type="button" class="btn btn-{{ bookings['clearwater'][deployment_name].state }} btn-block" id="cc_deployment_button-{{ bookings['clearwater'][deployment_name].name }}">{{ bookings['clearwater'][deployment_name].name }}</button>
+        <button type="button" class="btn btn-{{ bookings['clearwater'][deployment_name].state }} btn-block" id="deployment_button-{{ bookings['clearwater'][deployment_name].name }}">{{ bookings['clearwater'][deployment_name].name }}</button>
       </div>
     {% endfor %}
   </div>
@@ -27,13 +31,53 @@
 <!-- GENERIC BUTTON STUFF -->
 
   <p><button class="btn btn-primary btn-outline hidden" style="display: inline" id="node_screen_back_button"><span class="glyphicon glyphicon-arrow-left"></span> Back</button>
-  <div class="hidden" id="toggle_div">
-    <input type="checkbox" data-toggle="toggle" checked data-on="Release" data-off="Book" data-width=200 class="release_book_toggle" id="release_book_toggle">
-  </div>
+    <div class="hidden" id="toggle_div">
+      <input type="checkbox" data-toggle="toggle" checked data-on="Release" data-off="Book" data-width=200 class="release_book_toggle" id="release_book_toggle">
+    </div>
+  </p>
 
-<!-- LOWER LEVEL FORMS -->
+<!-- PERIMETA FORMS -->
+<div class="container hidden" id="release_form-perimeta">
+  <form method="post" action="/perimeta_kit_release">
+    <div id="initials_box-release-perimeta" class="form-group col-sm-9">
+      <p>
+        {{ perimeta_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-release-perimeta") }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-perimeta" style="position: absolute; left:80px; top:0px;"></span>
+      </p>
+      <p>
+        {{ perimeta_form.pointing(autocomplete="off", maxlength="20", placeholder="Enter deployment Perimeta will point at", class="form-control", style="width: 300px;", id="pointing_box_input_field-release-perimeta") }}
+      </p>
+      <p>{{ perimeta_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-perimeta") }}
+      </p>
+      <div class="col-sm-2" style="float: right">
+        <p><button type="submit" class="btn btn-primary btn-outline" style="float: right" {% if bookings['perimeta']['available'] %} disabled="true" {% endif %}>Release</button></p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container hidden" id="book_form-perimeta">
+  <form action="/perimeta_kit_booking" method='post'>
+    <div id="initials_box-book-perimeta" class="form-group col-sm-9">
+      <p>
+        {{ perimeta_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-book-perimeta") }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph-book-perimeta" style="position: absolute; left:80px; top:0px;"></span>
+      </p>
+      <p>
+        {{ perimeta_form.pointing(autocomplete="off", maxlength="20", placeholder="Enter deployment Perimeta will point at", class="form-control", style="width: 300px;", id="pointing_box_input_field-book-perimeta") }}
+      </p>
+      <p>{{ perimeta_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-perimeta") }}
+      </p>
+      <div class="col-sm-2" style="float: right">
+        <p><button type="submit" class="btn btn-primary btn-outline" style="float: right" {% if not bookings['perimeta']['available'] %} disabled="true" {% endif %}>Book</button></p>
+      </div>
+    </div>
+  </form>
+</div>
 
-  {% for deployment in form.clearwater_deployments %}
+
+<!-- CC FORMS -->
+
+  {% for deployment in clearwater_form.deployments %}
     <!-- DEFAULT RELEASE FORM -->
     <div class="container hidden" id="release_form-{{ deployment.name }}">
       <div class="col-sm-12">
@@ -49,14 +93,14 @@
 
       </div>
 
-      <form method="post" name="login" id="kit_booking_form">
+      <form method="post" name="login" id="kit_booking_form" action="/clearwater_kit_release">
       <div class="col-sm-3" id="{{ deployment.name }}">
         {% for node in deployment.nodes %}
           <p>
             <span class="button-checkbox">
 
               {% if not bookings['clearwater'][deployment.name]['nodes'][node.name]['available'] %}
-                <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-release-{{ deployment.name }}-{{ node.name }}" data-html="true" data-toggle="popover" title="{{ node.name }}" data-content="{{ bookings['clearwater'][deployment.name]['nodes'][node.name]['tooltip'] }}" data-trigger="hover" data-container="body" data-onstyle="success" data-offstyle="danger">{{ node.name }}</button>
+                <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-release-{{ deployment.name }}-{{ node.name }}" data-html="true" data-toggle="popover" title="{{ node.name }}" data-content="{{ bookings['clearwater'][deployment.name]['nodes'][node.name]['tooltip'] }}" data-trigger="hover" data-container="body">{{ node.name }}</button>
                 {{ node(class="hidden", id="checkbox-release-"+deployment.name+"-"+node.name) }}
               {% else %}
                 <button type="button" class="btn-indent btn disabled" data-color="primary" id="checkbox_button-release-{{ deployment.name }}-{{ node.name }}">{{ node.name }}</button>
@@ -69,10 +113,10 @@
       </div>
       <div id="initials_box-release-{{ deployment.name }}" class="form-group col-sm-9">
         <p>
-          {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-release-"+deployment.name) }}
+          {{ clearwater_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-release-"+deployment.name) }}
           <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
         </p>
-        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-"+deployment.name) }}
+        <p>{{ clearwater_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-"+deployment.name) }}
         </p>
         <div class="col-sm-2" style="float: right">
           <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Release</button></p>
@@ -80,28 +124,6 @@
       </div>
       </form>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -121,7 +143,7 @@
 
       </div>
 
-      <form method="post" name="login" id="kit_booking_form" action="/kit_booking">
+      <form method="post" name="login" id="kit_booking_form" action="/clearwater_kit_booking">
       <div class="col-sm-3" id="{{ deployment.name }}">
         {% for node in deployment.nodes %}
           <p>
@@ -141,10 +163,10 @@
       </div>
       <div id="initials_box-book-{{ deployment.name }}" class="form-group col-sm-9">
         <p>
-          {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-book-"+deployment.name) }}
+          {{ clearwater_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-book-"+deployment.name) }}
           <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
         </p>
-        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-" + deployment.name) }}
+        <p>{{ clearwater_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-" + deployment.name) }}
         </p>
         <div class="col-sm-2" style="float: right">
           <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Book</button></p>

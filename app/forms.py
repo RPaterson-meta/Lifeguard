@@ -88,8 +88,19 @@ class ClearwaterKitBookingForm(Form):
         return {'name': 'l3_cc4', 'nodes': [self.l3_cc4_sprout1, self.l3_cc4_sprout2, self.l3_cc4_hstead1, self.l3_cc4_hstead2, self.l3_cc4_ralf1, self.l3_cc4_ralf2]}
 
     @property
-    def clearwater_deployments(self):
+    def deployments(self):
         return [self.cc, self.cc2, self.cc3, self.cc4]
+
+
+class PerimetaKitBookingForm(Form):
+    l3_cc_perim1 = BooleanField('l3_cc_perim1', default=False)
+    name = StringField('perimeta_name')
+    pointing = StringField('pointing')
+    note = TextAreaField('perimeta_note')
+
+    @property
+    def perimeta_instances(self):
+        return {'name': 'Perimeta', 'nodes': [self.l3_cc_perim1]}
 
 
 class LoginForm(Form):

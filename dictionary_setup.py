@@ -133,7 +133,7 @@ if __name__ == '__main__':
              'state': 'success'}
     volte = {'l3_vt': l3_vt}
 
-    l3_cc_perim1 = {'name': 'l3_cc_perim1', 'available': True, 'tooltip': ''}
+    l3_cc_perim1 = {'name': 'l3_cc_perim1', 'available': True, 'tooltip': '', 'pointing_at': ''}
     bookings = {"clearwater": clearwater, 'volte': volte, 'perimeta': l3_cc_perim1}
     write_dictionary_to_file(
         bookings, os.path.dirname(__file__) + '/clearwater_kit_state.txt')

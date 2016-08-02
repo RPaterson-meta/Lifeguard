@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("[id^=cc_deployment_button]").click(function(){
+    $("[id^=deployment_button-]").click(function(){
         $("#deployment_buttons").addClass("hidden");
         var id=$(this).attr("id");
         var deployment=id.split('-')[1];
