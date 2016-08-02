@@ -72,7 +72,7 @@
           {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-release-"+deployment.name) }}
           <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
         </p>
-        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box") }}
+        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-"+deployment.name) }}
         </p>
         <div class="col-sm-2" style="float: right">
           <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Release</button></p>
@@ -144,7 +144,7 @@
           {{ form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-book-"+deployment.name) }}
           <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
         </p>
-        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box") }}
+        <p>{{ form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-" + deployment.name) }}
         </p>
         <div class="col-sm-2" style="float: right">
           <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Book</button></p>

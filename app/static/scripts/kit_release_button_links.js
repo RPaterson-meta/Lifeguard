@@ -17,6 +17,8 @@ $(document).ready(function(){
         $("[id^=book_form-]").addClass('hidden');
         $("#node_screen_back_button").addClass("hidden");
         $("#toggle_div").addClass("hidden");
+        $("[id^=initials_box_input_field-]").val('')
+        $("[id^=note-]").val('')
     });
     $('#release_book_toggle').change(function(){
         var deployment = $("#release_book_toggle").attr("deployment");

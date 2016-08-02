@@ -18,13 +18,11 @@ def kit_status():
     bookings = get_kit_bookings()
     cc_deployment_names = sorted(bookings['clearwater'].keys())
 
-    perimeta = {'name': 'L3 Perimeta', 'state': 'success'}
     return lifeguard_render("kit_management.html",
                             title='Kit Management',
                             form=form,
                             bookings=bookings,
-                            cc_deployment_names=cc_deployment_names,
-                            perimeta=perimeta)
+                            cc_deployment_names=cc_deployment_names)
 
 
 def log_kit_release(form):

@@ -23,7 +23,7 @@ $(document).ready(function(){
         var release_or_book = id.split('-')[1];
         var deployment=id.split('-')[2];
         var initials = $("#initials_box_input_field-".concat(release_or_book).concat('-').concat(deployment)).val();
-        if(team.indexOf(initials.upper()) > -1){
+        if(team.indexOf(initials) > -1){
             $(this).addClass("has-success has-feedback");
             $("#initials_box_input_field-".concat(release_or_book).concat('-').concat(deployment)).addClass("form-control-success")
             $("#initials_box_glyph-".concat(release_or_book).concat('-').concat(deployment)).addClass("glyphicon-ok");
