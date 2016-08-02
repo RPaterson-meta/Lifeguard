@@ -103,6 +103,80 @@ class PerimetaKitBookingForm(Form):
         return {'name': 'Perimeta', 'nodes': [self.l3_cc_perim1]}
 
 
+class VolteKitBookingForm(Form):
+    name = StringField('name')
+    note = TextAreaField('note')
+
+    l3_vt2_dcm1 = BooleanField('l3_vt2_dcm1', default=False)
+    l3_vt2_dcm2 = BooleanField('l3_vt2_dcm2', default=False)
+    l3_vt2_hstead1 = BooleanField('l3_vt2_hstead1', default=False)
+    l3_vt2_hstead2 = BooleanField('l3_vt2_hstead2', default=False)
+    l3_vt2_ip_sm_gw1 = BooleanField('l3_vt2_ip_sm_gw1', default=False)
+    l3_vt2_mrf1 = BooleanField('l3_vt2_mrf1', default=False)
+    l3_vt2_perim1 = BooleanField('l3_vt2_perim1', default=False)
+    l3_vt2_rem_ag1 = BooleanField('l3_vt2_rem_ag1', default=False)
+    l3_vt2_sg1 = BooleanField('l3_vt2_sg1', default=False)
+    l3_vt2_sprout1 = BooleanField('l3_vt2_sprout1', default=False)
+    l3_vt2_sprout2 = BooleanField('l3_vt2_sprout2', default=False)
+    l3_vt2_tas1 = BooleanField('l3_vt2_tas1', default=False)
+
+##########################################################################
+    l3_vt_dcm1 = BooleanField('l3_vt_dcm1', default=False)
+    l3_vt_dcm2 = BooleanField('l3_vt_dcm2', default=False)
+    l3_vt_hstead1 = BooleanField('l3_vt_hstead1', default=False)
+    l3_vt_hstead2 = BooleanField('l3_vt_hstead2', default=False)
+    l3_vt_ip_sm_gw1 = BooleanField('l3_vt_ip_sm_gw1', default=False)
+    l3_vt_mrf1 = BooleanField('l3_vt_mrf1', default=False)
+    l3_vt_perim1 = BooleanField('l3_vt_perim1', default=False)
+    l3_vt_rem_ag1 = BooleanField('l3_vt_rem_ag1', default=False)
+    l3_vt_sg1 = BooleanField('l3_vt_sg1', default=False)
+    l3_vt_sprout1 = BooleanField('l3_vt_sprout1', default=False)
+    l3_vt_sprout2 = BooleanField('l3_vt_sprout2', default=False)
+    l3_vt_tas1 = BooleanField('l3_vt_tas1', default=False)
+
+##########################################################################
+
+    @property
+    def form_nodes(self):
+        return [self.l3_vt2_dcm1,
+                self.l3_vt2_dcm2,
+                self.l3_vt2_hstead1,
+                self.l3_vt2_hstead2,
+                self.l3_vt2_ip_sm_gw1,
+                self.l3_vt2_mrf1,
+                self.l3_vt2_perim1,
+                self.l3_vt2_dcm1,
+                self.l3_vt2_rem_ag1,
+                self.l3_vt2_sg1,
+                self.l3_vt2_sprout1,
+                self.l3_vt2_sprout2,
+                self.l3_vt2_tas1,
+                self.l3_vt_dcm1,
+                self.l3_vt_dcm2,
+                self.l3_vt_hstead1,
+                self.l3_vt_hstead2,
+                self.l3_vt_ip_sm_gw1,
+                self.l3_vt_mrf1,
+                self.l3_vt_perim1,
+                self.l3_vt_rem_ag1,
+                self.l3_vt_sg1,
+                self.l3_vt_sprout1,
+                self.l3_vt_sprout2,
+                self.l3_vt_tas1]
+
+    @property
+    def vt(self):
+        return {'name': 'l3_vt', 'nodes': [self.l3_vt_dcm1, self.l3_vt_dcm2, self.l3_vt_hstead1, self.l3_vt_hstead2, self.l3_vt_ip_sm_gw1, self.l3_vt_mrf1, self.l3_vt_perim1, self.l3_vt_rem_ag1, self.l3_vt_sg1, self.l3_vt_sprout1, self.l3_vt_sprout2, self.l3_vt_tas1]}
+
+    @property
+    def vt2(self):
+        return {'name': 'l3_vt2', 'nodes': [self.l3_vt2_dcm1, self.l3_vt2_dcm2, self.l3_vt2_hstead1, self.l3_vt2_hstead2, self.l3_vt2_ip_sm_gw1, self.l3_vt2_mrf1, self.l3_vt2_perim1, self.l3_vt2_rem_ag1, self.l3_vt2_sg1, self.l3_vt2_sprout1, self.l3_vt2_sprout2, self.l3_vt2_tas1]}
+
+    @property
+    def deployments(self):
+        return [self.vt, self.vt2]
+
+
 class LoginForm(Form):
     openid = StringField('openid', validators=[DataRequired()])
     remember_me = BooleanField('remember_me', default=False)

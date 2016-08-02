@@ -1,7 +1,7 @@
 from app import app
 from flask import redirect, request, flash
 from app.views.viewfunctions import lifeguard_render, store_kit_bookings, get_kit_bookings, update_deployment_availability
-from app.forms import ClearwaterKitBookingForm, PerimetaKitBookingForm
+from app.forms import ClearwaterKitBookingForm, PerimetaKitBookingForm, VolteKitBookingForm
 import datetime
 import os
 
@@ -11,7 +11,18 @@ def clearwater_kit_booking():
     clearwater_form = ClearwaterKitBookingForm()
     if request.method == 'POST' and clearwater_form.name.data:
         book_clearwater_kit(clearwater_form)
-        flash('Kit booked for ' + str(clearwater_form.name.data), 'success')
+        flash('Clearwater kit booked for ' + str(clearwater_form.name.data), 'success')
+    elif request.method == 'POST':
+        flash('Please enter initials', 'error')
+    return redirect('/kit_management')
+
+
+@app.route('/volte_kit_booking', methods=['POST'])
+def volte_kit_booking():
+    volte_form = VolteKitBookingForm()
+    if request.method == 'POST' and volte_form.name.data:
+        book_volte_kit(volte_form)
+        flash('VoLTE kit booked for ' + str(volte_form.name.data), 'success')
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
     return redirect('/kit_management')
@@ -39,6 +50,17 @@ def clearwater_kit_release():
     return redirect('/kit_management')
 
 
+@app.route('/volte_kit_release', methods=['POST'])
+def volte_kit_release():
+    volte_form = VolteKitBookingForm()
+    if request.method == 'POST' and volte_form.name.data:
+        release_volte_kit(volte_form)
+        flash('VoLTE kit released for ' + str(volte_form.name.data), 'success')
+    elif request.method == 'POST':
+        flash('Please enter initials', 'error')
+    return redirect('/kit_management')
+
+
 @app.route('/perimeta_kit_release', methods=['POST'])
 def perimeta_kit_release():
     perimeta_form = PerimetaKitBookingForm()
@@ -49,12 +71,20 @@ def perimeta_kit_release():
         flash('Please enter initials', 'error')
     return redirect('/kit_management')
 
+##########################################
+##########################################
+##########################################
+##########################################
+##########################################
+##########################################
+# required functions
+
 
 def book_clearwater_kit(form):
     log_clearwater_kit_booking(form)
     bookings = get_kit_bookings()
     # clearwater specific
-    for deployment in form.clearwater_deployments:
+    for deployment in form.deployments:
 
         for node in deployment['nodes']:
             if node.data:
@@ -67,12 +97,46 @@ def book_clearwater_kit(form):
     store_kit_bookings(bookings)
 
 
+def book_volte_kit(form):
+    log_volte_kit_booking(form)
+    bookings = get_kit_bookings()
+    # clearwater specific
+    for deployment in form.deployments:
+
+        for node in deployment['nodes']:
+            if node.data:
+                bookings['volte'][deployment['name']]['nodes'][
+                    node.name]['available'] = False
+                bookings['volte'][deployment['name']]['nodes'][
+                    node.name]['tooltip'] = generate_clearwater_tooltip(form)
+
+            update_deployment_availability('volte', deployment, bookings)
+    store_kit_bookings(bookings)
+
+
 def log_clearwater_kit_booking(form):
 
     with open(os.path.dirname(__file__) + '/../../logs/clearwater_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nBOOKING: ' + datetime.datetime.today().strftime("%d/%m/%Y  %H:%M:%S"))
         bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
-        for deployment in form.clearwater_deployments:
+        for deployment in form.deployments:
+            for node in deployment['nodes']:
+                if node.data:
+                    bookings_ledger.write('\n' + node.name)
+                    bookings_ledger.write(' - type=BOOKING')
+                    bookings_ledger.write(' - user=' + form.name.data)
+                    bookings_ledger.write(' - note=' + form.note.data)
+        bookings_ledger.write(
+            '\nfurther_nodes_use_information: ' + str(form.note.data))
+        bookings_ledger.write('\n')
+
+
+def log_volte_kit_booking(form):
+
+    with open(os.path.dirname(__file__) + '/../../logs/volte_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
+        bookings_ledger.write('\nBOOKING: ' + datetime.datetime.today().strftime("%d/%m/%Y  %H:%M:%S"))
+        bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
+        for deployment in form.deployments:
             for node in deployment['nodes']:
                 if node.data:
                     bookings_ledger.write('\n' + node.name)
@@ -161,11 +225,22 @@ def log_kit_release(form):
 def release_clearwater_kit(form):
     log_kit_release(form)
     bookings = get_kit_bookings()
-    for deployment in form.clearwater_deployments:
+    for deployment in form.deployments:
         for node in deployment['nodes']:
             if node.data:
                 bookings['clearwater'][deployment['name']]['nodes'][node.name]['available'] = True
         update_deployment_availability('clearwater', deployment, bookings)
+    store_kit_bookings(bookings)
+
+
+def release_volte_kit(form):
+    log_kit_release(form)
+    bookings = get_kit_bookings()
+    for deployment in form.deployments:
+        for node in deployment['nodes']:
+            if node.data:
+                bookings['volte'][deployment['name']]['nodes'][node.name]['available'] = True
+        update_deployment_availability('volte', deployment, bookings)
     store_kit_bookings(bookings)
 
 

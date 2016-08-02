@@ -107,12 +107,25 @@ if __name__ == '__main__':
                        'available': True, 'tooltip': ''}
     l3_vt_mrf1 = {'name': 'l3_vt_mrf1', 'available': True, 'tooltip': ''}
     l3_vt_perim1 = {'name': 'l3_vt_perim1', 'available': True, 'tooltip': ''}
-    l3_vt_dcm1 = {'name': 'l3_vt_dcm1', 'available': True, 'tooltip': ''}
     l3_vt_rem_ag1 = {'name': 'l3_vt_rem_ag1', 'available': True, 'tooltip': ''}
     l3_vt_sg1 = {'name': 'l3_vt_sg1', 'available': True, 'tooltip': ''}
     l3_vt_sprout1 = {'name': 'l3_vt_sprout1', 'available': True, 'tooltip': ''}
     l3_vt_sprout2 = {'name': 'l3_vt_sprout2', 'available': True, 'tooltip': ''}
     l3_vt_tas1 = {'name': 'l3_vt_tas1', 'available': True, 'tooltip': ''}
+
+    l3_vt2_dcm1 = {'name': 'l3_vt2_dcm1', 'available': True, 'tooltip': ''}
+    l3_vt2_dcm2 = {'name': 'l3_vt2_dcm2', 'available': True, 'tooltip': ''}
+    l3_vt2_hstead1 = {'name': 'l3_vt2_hstead1', 'available': True, 'tooltip': ''}
+    l3_vt2_hstead2 = {'name': 'l3_vt2_hstead2', 'available': True, 'tooltip': ''}
+    l3_vt2_ip_sm_gw1 = {'name': 'l3_vt2_ip_sm_gw1',
+                        'available': True, 'tooltip': ''}
+    l3_vt2_mrf1 = {'name': 'l3_vt2_mrf1', 'available': True, 'tooltip': ''}
+    l3_vt2_perim1 = {'name': 'l3_vt2_perim1', 'available': True, 'tooltip': ''}
+    l3_vt2_rem_ag1 = {'name': 'l3_vt2_rem_ag1', 'available': True, 'tooltip': ''}
+    l3_vt2_sg1 = {'name': 'l3_vt2_sg1', 'available': True, 'tooltip': ''}
+    l3_vt2_sprout1 = {'name': 'l3_vt2_sprout1', 'available': True, 'tooltip': ''}
+    l3_vt2_sprout2 = {'name': 'l3_vt2_sprout2', 'available': True, 'tooltip': ''}
+    l3_vt2_tas1 = {'name': 'l3_vt2_tas1', 'available': True, 'tooltip': ''}
 
     l3_vt = {'name': 'l3_vt',
              'nodes': {'l3_vt_dcm1': l3_vt_dcm1,
@@ -122,7 +135,6 @@ if __name__ == '__main__':
                        'l3_vt_ip_sm_gw1': l3_vt_ip_sm_gw1,
                        'l3_vt_mrf1': l3_vt_mrf1,
                        'l3_vt_perim1': l3_vt_perim1,
-                       'l3_vt_dcm1': l3_vt_dcm1,
                        'l3_vt_rem_ag1': l3_vt_rem_ag1,
                        'l3_vt_sg1': l3_vt_sg1,
                        'l3_vt_sprout1': l3_vt_sprout1,
@@ -131,7 +143,24 @@ if __name__ == '__main__':
              'fully_unbooked': True,
              'fully_booked': False,
              'state': 'success'}
-    volte = {'l3_vt': l3_vt}
+    l3_vt2 = {'name': 'l3_vt2',
+              'nodes': {'l3_vt2_dcm1': l3_vt2_dcm1,
+                        'l3_vt2_dcm2': l3_vt2_dcm2,
+                        'l3_vt2_hstead1': l3_vt2_hstead1,
+                        'l3_vt2_hstead2': l3_vt2_hstead2,
+                        'l3_vt2_ip_sm_gw1': l3_vt2_ip_sm_gw1,
+                        'l3_vt2_mrf1': l3_vt2_mrf1,
+                        'l3_vt2_perim1': l3_vt2_perim1,
+                        'l3_vt2_rem_ag1': l3_vt2_rem_ag1,
+                        'l3_vt2_sg1': l3_vt2_sg1,
+                        'l3_vt2_sprout1': l3_vt2_sprout1,
+                        'l3_vt2_sprout2': l3_vt2_sprout2,
+                        'l3_vt2_tas1': l3_vt2_tas1},
+              'fully_unbooked': True,
+              'fully_booked': False,
+              'state': 'success'}
+
+    volte = {'l3_vt': l3_vt, 'l3_vt2': l3_vt2}
 
     l3_cc_perim1 = {'name': 'l3_cc_perim1', 'available': True, 'tooltip': '', 'pointing_at': ''}
     bookings = {"clearwater": clearwater, 'volte': volte, 'perimeta': l3_cc_perim1}
