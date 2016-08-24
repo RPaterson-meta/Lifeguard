@@ -1,7 +1,7 @@
 from app import app
 from flask import redirect, request, flash
-from app.views.viewfunctions import lifeguard_render, store_kit_bookings, get_kit_bookings, update_deployment_availability
-from app.forms import ClearwaterKitBookingForm, PerimetaKitBookingForm, VolteKitBookingForm
+from app.views.viewfunctions import point_perimeta, lifeguard_render, store_kit_bookings, get_kit_bookings, update_deployment_availability
+from app.forms import ClearwaterKitBookingForm, PerimetaKitBookingForm, VolteKitBookingForm, CCFKitBookingForm
 import datetime
 import os
 
@@ -31,9 +31,26 @@ def volte_kit_booking():
 @app.route('/perimeta_kit_booking', methods=['POST'])
 def perimeta_kit_booking():
     perimeta_form = PerimetaKitBookingForm()
-    if request.method == 'POST' and perimeta_form.name.data:
-        book_perimeta_kit(perimeta_form)
-        flash('Perimeta booked for ' + str(perimeta_form.name.data), 'success')
+    print(perimeta_form.pointing.data)
+    if request.method == 'POST':
+        if not perimeta_form.name.data:
+            flash('Please enter initials', 'error')
+        elif perimeta_form.pointing.data == 'Select Deployment':
+            flash('Please enter the deployment you will be pointing Perimeta at', 'error')
+        else:
+            if perimeta_form.use_pointing.data:
+                point_perimeta(perimeta_form.pointing.data)
+            book_perimeta_kit(perimeta_form)
+            flash('Perimeta booked for ' + str(perimeta_form.name.data), 'success')
+    return redirect('/kit_management')
+
+
+@app.route('/ccf_kit_booking', methods=['POST'])
+def ccf_kit_booking():
+    ccf_form = CCFKitBookingForm()
+    if request.method == 'POST' and ccf_form.name.data:
+        book_ccf_kit(ccf_form)
+        flash('CCF kit booked for ' + str(ccf_form.name.data), 'success')
     elif request.method == 'POST':
         flash('Please enter initials', 'error')
     return redirect('/kit_management')
@@ -61,14 +78,30 @@ def volte_kit_release():
     return redirect('/kit_management')
 
 
+@app.route('/ccf_kit_release', methods=['POST'])
+def ccf_kit_release():
+    ccf_form = CCFKitBookingForm()
+    if request.method == 'POST' and ccf_form.name.data:
+        release_ccf_kit(ccf_form)
+        flash('CCF kit released for ' + str(ccf_form.name.data), 'success')
+    elif request.method == 'POST':
+        flash('Please enter initials', 'error')
+    return redirect('/kit_management')
+
+
 @app.route('/perimeta_kit_release', methods=['POST'])
 def perimeta_kit_release():
     perimeta_form = PerimetaKitBookingForm()
-    if request.method == 'POST' and perimeta_form.name.data:
-        release_perimeta_kit(perimeta_form)
-        flash('Perimeta released for ' + str(perimeta_form.name.data), 'success')
-    elif request.method == 'POST':
-        flash('Please enter initials', 'error')
+    if request.method == 'POST':
+        if not perimeta_form.name.data:
+            flash('Please enter initials', 'error')
+        elif not perimeta_form.pointing.data:
+            flash('Please enter the deployment Perimeta is pointing at', 'error')
+        else:
+            if perimeta_form.use_pointing.data:
+                point_perimeta(perimeta_form.pointing.data)
+            release_perimeta_kit(perimeta_form)
+            flash('Perimeta released for ' + str(perimeta_form.name.data), 'success')
     return redirect('/kit_management')
 
 ##########################################
@@ -114,6 +147,23 @@ def book_volte_kit(form):
     store_kit_bookings(bookings)
 
 
+def book_ccf_kit(form):
+    log_ccf_kit_booking(form)
+    bookings = get_kit_bookings()
+    # clearwater specific
+    for deployment in form.deployments:
+
+        for node in deployment['nodes']:
+            if node.data:
+                bookings['ccf'][deployment['name']]['nodes'][
+                    node.name]['available'] = False
+                bookings['ccf'][deployment['name']]['nodes'][
+                    node.name]['tooltip'] = generate_tooltip(form)
+
+            update_deployment_availability('ccf', deployment, bookings)
+    store_kit_bookings(bookings)
+
+
 def log_clearwater_kit_booking(form):
 
     with open(os.path.dirname(__file__) + '/../../logs/clearwater_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
@@ -134,6 +184,23 @@ def log_clearwater_kit_booking(form):
 def log_volte_kit_booking(form):
 
     with open(os.path.dirname(__file__) + '/../../logs/volte_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
+        bookings_ledger.write('\nBOOKING: ' + datetime.datetime.today().strftime("%d/%m/%Y  %H:%M:%S"))
+        bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
+        for deployment in form.deployments:
+            for node in deployment['nodes']:
+                if node.data:
+                    bookings_ledger.write('\n' + node.name)
+                    bookings_ledger.write(' - type=BOOKING')
+                    bookings_ledger.write(' - user=' + form.name.data)
+                    bookings_ledger.write(' - note=' + form.note.data)
+        bookings_ledger.write(
+            '\nfurther_nodes_use_information: ' + str(form.note.data))
+        bookings_ledger.write('\n')
+
+
+def log_ccf_kit_booking(form):
+
+    with open(os.path.dirname(__file__) + '/../../logs/ccf_kit-' + datetime.datetime.today().strftime('%b_%Y') + '.log', 'a') as bookings_ledger:
         bookings_ledger.write('\nBOOKING: ' + datetime.datetime.today().strftime("%d/%m/%Y  %H:%M:%S"))
         bookings_ledger.write('\nuser_of_the_nodes: ' + form.name.data)
         for deployment in form.deployments:
@@ -241,6 +308,17 @@ def release_volte_kit(form):
             if node.data:
                 bookings['volte'][deployment['name']]['nodes'][node.name]['available'] = True
         update_deployment_availability('volte', deployment, bookings)
+    store_kit_bookings(bookings)
+
+
+def release_ccf_kit(form):
+    log_kit_release(form, product='ccf')
+    bookings = get_kit_bookings()
+    for deployment in form.deployments:
+        for node in deployment['nodes']:
+            if node.data:
+                bookings['ccf'][deployment['name']]['nodes'][node.name]['available'] = True
+        update_deployment_availability('ccf', deployment, bookings)
     store_kit_bookings(bookings)
 
 

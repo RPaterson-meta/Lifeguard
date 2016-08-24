@@ -2,14 +2,19 @@ import datetime
 import pypyodbc as pyodbc
 from app import app
 from app.views.viewfunctions import lifeguard_render
-
+# TO ADD OR REMOVE TEAM MEMBERS, SIMPLY GIVE THEM A DATASTRUCTURE LIKE THE MEMBERS
+# BELOW AND THEN ADD THEM TO THE TEAM LIST BENEATH
 TPR = {'initials': 'TPR', 'name': 'Thomas Rees', 'payroll_id': 5349}
 SL = {'initials': 'SL', 'name': 'Steve Lloyd', 'payroll_id': 164}
 NJ2 = {'initials': 'NJ2', 'name': 'Nicole Johnson', 'payroll_id': 511}
 RJP = {'initials': 'RJP', 'name': 'Ross Paterson', 'payroll_id': 1386}
 NB = {'initials': 'NB', 'name': 'Neil Bruce', 'payroll_id': 361}
+TB = {'initials': 'TB', 'name': 'Tony Blenkinsopp', 'payroll_id': 165}
+GF2 = {'initials': 'GF2', 'name': 'Grant Fitzgerald', 'payroll_id': 5097}
+JWK = {'initials': 'JWK', 'name': 'James Kistruck', 'payroll_id': 441}
 
-TEAM = [NJ2, SL, TPR, NB, RJP]
+
+TEAM = [NJ2, SL, TPR, NB, GF2, JWK, TB]
 
 
 @app.route('/whereabouts')
@@ -57,7 +62,7 @@ def get_whereabouts(payroll_id, date_from, date_to):
                'style': 'state' + db_output[i + 1][10].upper()}
 
         if db_output[i][5].strftime('%a') == 'Fri':
-                entry['style'] = 'endOfWeek'
+            entry['style'] = 'endOfWeek'
 
         if morn['text'] != aft['text']:
             entry['split'] = True

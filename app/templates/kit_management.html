@@ -31,6 +31,11 @@
         <button type="button" class="btn btn-{{ bookings['volte'][deployment_name].state }} btn-block" id="deployment_button-{{ bookings['volte'][deployment_name].name }}">{{ bookings['volte'][deployment_name].name }}</button>
       </div>
     {% endfor %}
+    {% for deployment_name in ccf_deployment_names %}
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-{{ bookings['ccf'][deployment_name].state }} btn-block" id="deployment_button-{{ bookings['ccf'][deployment_name].name }}">{{ bookings['ccf'][deployment_name].name }}</button>
+      </div>
+    {% endfor %}
   </div>
 
 <!-- GENERIC BUTTON STUFF -->
@@ -54,6 +59,7 @@
       </p>
       <p>{{ perimeta_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-perimeta") }}
       </p>
+      <p>{{perimeta_form.use_pointing}} Use lifeguard to point Perimeta</p>
       <div class="col-sm-2" style="float: right">
         <p><button type="submit" class="btn btn-primary btn-outline" style="float: right" {% if bookings['perimeta']['available'] %} disabled="true" {% endif %}>Release</button></p>
       </div>
@@ -72,6 +78,7 @@
       </p>
       <p>{{ perimeta_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-perimeta") }}
       </p>
+      <p>{{perimeta_form.use_pointing(checked="checked")}} Use lifeguard to point Perimeta</p>
       <div class="col-sm-2" style="float: right">
         <p><button type="submit" class="btn btn-primary btn-outline" style="float: right" {% if not bookings['perimeta']['available'] %} disabled="true" {% endif %}>Book</button></p>
       </div>
@@ -280,4 +287,105 @@
       </form>
     </div>
   {% endfor %}
+
+<!-- CCF FORMS -->
+{% for deployment in ccf_form.deployments %}
+    <!-- DEFAULT RELEASE FORM -->
+    <div class="container hidden" id="release_form-{{ deployment.name }}">
+      <div class="col-sm-12">
+        <span class="button-checkbox">
+          {% if not bookings['ccf'][deployment['name']]['fully_unbooked'] %}
+            <button type="button" class="btn btn-xlg-check-not-full" data-color="primary" id="select_all_button-release-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" id="select_all_checkbox-release-{{ deployment.name }}">
+          {% else %}
+            <button type="button" class="btn btn-xlg-check-not-full disabled" data-color="primary" id="select_all_button-release-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" disabled="true" id="select_all_checkbox-release-{{ deployment.name }}">
+          {% endif %}
+        </span>
+
+      </div>
+
+      <form method="post" name="login" id="kit_booking_form" action="/ccf_kit_release">
+      <div class="col-sm-3" id="{{ deployment.name }}">
+        {% for node in deployment.nodes %}
+          <p>
+            <span class="button-checkbox">
+
+              {% if not bookings['ccf'][deployment.name]['nodes'][node.name]['available'] %}
+                <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-release-{{ deployment.name }}-{{ node.name }}" data-html="true" data-toggle="popover" title="{{ node.name }}" data-content="{{ bookings['ccf'][deployment.name]['nodes'][node.name]['tooltip'] }}" data-trigger="hover" data-container="body">{{ node.name }}</button>
+                {{ node(class="hidden", id="checkbox-release-"+deployment.name+"-"+node.name) }}
+              {% else %}
+                <button type="button" class="btn-indent btn disabled" data-color="primary" id="checkbox_button-release-{{ deployment.name }}-{{ node.name }}">{{ node.name }}</button>
+                {{ node(class="hidden", disabled="true", id="checkbox-release-"+deployment.name+"-"+node.name) }}
+              {% endif %}
+
+            </span>
+          </p>
+        {% endfor %}
+      </div>
+      <div id="initials_box-release-{{ deployment.name }}" class="form-group col-sm-9">
+        <p>
+          {{ ccf_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-release-"+deployment.name) }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
+        </p>
+        <p>{{ ccf_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-release-"+deployment.name) }}
+        </p>
+        <div class="col-sm-2" style="float: right">
+          <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Release</button></p>
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+
+
+
+    <div class="container hidden" id="book_form-{{ deployment.name }}">
+      <div class="col-sm-12">
+        <span class="button-checkbox">
+          {% if not bookings['ccf'][deployment['name']]['fully_booked'] %}
+            <button type="button" class="btn btn-xlg-check-not-full" data-color="primary" id="select_all_button-book-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" id="select_all_checkbox-book-{{ deployment.name }}">
+          {% else %}
+            <button type="button" class="btn btn-xlg-check-not-full disabled" data-color="primary" id="select_all_button-book-{{ deployment.name }}">{{ deployment.name }}</button>
+            <input type="checkbox" class="hidden" disabled="true" id="select_all_checkbox-book-{{ deployment.name }}">
+          {% endif %}
+        </span>
+
+      </div>
+
+      <form method="post" name="login" id="kit_booking_form" action="/ccf_kit_booking">
+      <div class="col-sm-3" id="{{ deployment.name }}">
+        {% for node in deployment.nodes %}
+          <p>
+            <span class="button-checkbox">
+
+              {% if bookings['ccf'][deployment.name]['nodes'][node.name]['available'] %}
+                <button type="button" class="btn-indent btn" data-color="primary" id="checkbox_button-book-{{ deployment.name }}-{{ node.name }}" >{{ node.name }}</button>
+                {{ node(class="hidden", id="checkbox-book-"+deployment.name+"-"+node.name) }}
+              {% else %}
+                <button type="button" class="btn-indent btn disabled" data-color="primary">{{ node.name }}</button>
+                {{ node(class="hidden", disabled="true", id="checkbox-book-"+deployment.name+"-"+node.name) }}
+              {% endif %}
+
+            </span>
+          </p>
+        {% endfor %}
+      </div>
+      <div id="initials_box-book-{{ deployment.name }}" class="form-group col-sm-9">
+        <p>
+          {{ ccf_form.name(autocomplete="off", maxlength="4", placeholder="Enter Initials", class="form-control", style="width: 110px;", id="initials_box_input_field-book-"+deployment.name) }}
+          <span class="glyphicon form-control-feedback" id="initials_box_glyph-release-{{ deployment.name }}" style="position: absolute; left:80px; top:0px;"></span>
+        </p>
+        <p>{{ ccf_form.note(autocomplete="off", placeholder="Additional note (optional)", class="form-control reason-box", id="note-book-" + deployment.name) }}
+        </p>
+        <div class="col-sm-2" style="float: right">
+          <p><button type="submit" class="btn btn-primary btn-outline" style="float: right">Book</button></p>
+        </div>
+      </div>
+      </form>
+    </div>
+  {% endfor %}
+
 {% endblock %}

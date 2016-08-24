@@ -25,42 +25,17 @@ def store_kit_bookings(input_dictionary):
 
 if __name__ == '__main__':
     bookings = get_kit_bookings()
+    l3_ccf1_cedar1 = {'name': 'l3_ccf1_cedar1', 'available': True, 'tooltip': ''}
+    l3_ccf1_cedar2 = {'name': 'l3_ccf1_cedar2', 'available': True, 'tooltip': ''}
+    l3_ccf1_cedar3 = {'name': 'l3_ccf1_cedar3', 'available': True, 'tooltip': ''}
 
-    l3_vt2_dcm1 = {'name': 'l3_vt2_dcm1', 'available': True, 'tooltip': ''}
-    l3_vt2_dcm2 = {'name': 'l3_vt2_dcm2', 'available': True, 'tooltip': ''}
-    l3_vt2_hstead1 = {'name': 'l3_vt2_hstead1',
-                      'available': True, 'tooltip': ''}
-    l3_vt2_hstead2 = {'name': 'l3_vt2_hstead2',
-                      'available': True, 'tooltip': ''}
-    l3_vt2_ip_sm_gw1 = {'name': 'l3_vt2_ip_sm_gw1',
-                        'available': True, 'tooltip': ''}
-    l3_vt2_mrf1 = {'name': 'l3_vt2_mrf1', 'available': True, 'tooltip': ''}
-    l3_vt2_perim1 = {'name': 'l3_vt2_perim1', 'available': True, 'tooltip': ''}
-    l3_vt2_rem_ag1 = {'name': 'l3_vt2_rem_ag1',
-                      'available': True, 'tooltip': ''}
-    l3_vt2_sg1 = {'name': 'l3_vt2_sg1', 'available': True, 'tooltip': ''}
-    l3_vt2_sprout1 = {'name': 'l3_vt2_sprout1',
-                      'available': True, 'tooltip': ''}
-    l3_vt2_sprout2 = {'name': 'l3_vt2_sprout2',
-                      'available': True, 'tooltip': ''}
-    l3_vt2_tas1 = {'name': 'l3_vt2_tas1', 'available': True, 'tooltip': ''}
-
-    l3_vt2 = {'name': 'l3_vt2',
-              'nodes': {'l3_vt2_dcm1': l3_vt2_dcm1,
-                        'l3_vt2_dcm2': l3_vt2_dcm2,
-                        'l3_vt2_hstead1': l3_vt2_hstead1,
-                        'l3_vt2_hstead2': l3_vt2_hstead2,
-                        'l3_vt2_ip_sm_gw1': l3_vt2_ip_sm_gw1,
-                        'l3_vt2_mrf1': l3_vt2_mrf1,
-                        'l3_vt2_perim1': l3_vt2_perim1,
-                        'l3_vt2_rem_ag1': l3_vt2_rem_ag1,
-                        'l3_vt2_sg1': l3_vt2_sg1,
-                        'l3_vt2_sprout1': l3_vt2_sprout1,
-                        'l3_vt2_sprout2': l3_vt2_sprout2,
-                        'l3_vt2_tas1': l3_vt2_tas1},
-              'fully_unbooked': True,
-              'fully_booked': False,
-              'state': 'success'}
-
-    bookings['volte']['l3_vt2'] = l3_vt2
+    l3_ccf1 = {'name': 'l3_ccf1',
+               'nodes': {'l3_ccf1_cedar1': l3_ccf1_cedar1,
+                         'l3_ccf1_cedar2': l3_ccf1_cedar2,
+                         'l3_ccf1_cedar3': l3_ccf1_cedar3},
+               'fully_unbooked': True,
+               'fully_booked': False,
+               'state': 'success'}
+    ccf = {'l3_ccf1': l3_ccf1}
+    bookings['ccf'] = ccf
     store_kit_bookings(bookings)

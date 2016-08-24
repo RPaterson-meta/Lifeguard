@@ -1,10 +1,9 @@
 from app import app
-from app.views.viewfunctions import lifeguard_render
+from app.views.viewfunctions import lifeguard_render, homepage
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'nickname': 'Miguel'}  # fake user
-    return lifeguard_render("index.html",
+    return lifeguard_render(homepage(),
                             title='Home')

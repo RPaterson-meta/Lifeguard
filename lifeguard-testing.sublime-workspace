@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"ns",
+				"ns_lines	statement"
+			],
+			[
+				"pointing",
+				"pointing	statement"
+			],
+			[
+				"use",
+				"use_pointing	statement"
+			],
+			[
+				"ccf_",
+				"ccf_deployment_names	statement"
+			],
+			[
+				"v",
+				"volte_form"
+			],
+			[
+				"get",
+				"get_kit_bookings	function"
+			],
+			[
 				"gener",
 				"generate_perimeta_release_tooltip	function"
 			],
@@ -22,10 +46,6 @@
 			[
 				"Per",
 				"PerimetaKitBookingForm"
-			],
-			[
-				"pointing",
-				"pointing_at"
 			],
 			[
 				"perimeta",
@@ -50,10 +70,6 @@
 			[
 				"stoi",
 				"store_kit_bookings	import"
-			],
-			[
-				"get",
-				"get_kit_bookings	import"
 			],
 			[
 				"read",
@@ -498,91 +514,11 @@
 			[
 				"monit_",
 				"monit_lines	statement"
-			],
-			[
-				"statisti",
-				"statistic_window	statement"
-			],
-			[
-				"home",
-				"HOMESTEAD_OID_DICT	statement"
-			],
-			[
-				"SPROUT",
-				"SPROUT_OID_DICT	statement"
-			],
-			[
-				"rtn",
-				"rtn_string"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "app/templates/kit_management.html",
-			"settings":
-			{
-				"buffer_size": 10645,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/maintenance.html",
-			"settings":
-			{
-				"buffer_size": 77,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/kit_management.py",
-			"settings":
-			{
-				"buffer_size": 843,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/kit_booking.py",
-			"settings":
-			{
-				"buffer_size": 8711,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/static/scripts/kit_booking_input.js",
-			"settings":
-			{
-				"buffer_size": 2814,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "dictionary_setup.py",
-			"settings":
-			{
-				"buffer_size": 6831,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/forms.py",
-			"settings":
-			{
-				"buffer_size": 4642,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/static/scripts/kit_release_button_links.js",
-			"settings":
-			{
-				"buffer_size": 1630,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -685,11 +621,29 @@
 	],
 	"file_history":
 	[
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/index.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/views/index.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/lifeguards.html",
 		"/C/Users/rjp/Documents/lifeguard_testing/app/views/viewfunctions.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/.egg/do_not_open.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/Do_not_open.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/views/views.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/kit_management.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/views/kit_management.py",
 		"/C/Users/rjp/Documents/lifeguard_testing/run.py",
 		"/C/Users/rjp/Documents/lifeguard_testing/app/views/kit_booking.py",
-		"/C/Users/rjp/Documents/lifeguard_testing/app/static/scripts/kit_release_button_links.js",
+		"/C/Users/rjp/Documents/clearwater/CC_node_decommission_tool/clearwater-decommission.sh",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/whereabouts.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/views/whereabouts.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/forms.py",
+		"/C/Users/rjp/Documents/clearwater/CC_Openstack_Deployment/openstack_subprocess.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/perimeta_control.html",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/views/perimeta_control.py",
 		"/C/Users/rjp/Documents/lifeguard_testing/app/static/scripts/kit_booking_input.js",
+		"/C/Users/rjp/Documents/lifeguard_testing/dictionary_setup.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/static/scripts/kit_release_button_links.js",
+		"/C/Users/rjp/Documents/lifeguard_testing/dictionary_updates.py",
+		"/C/Users/rjp/Documents/lifeguard_testing/app/templates/maintenance.html",
 		"/C/Users/rjp/Documents/lifeguard_testing/kit_booking.py",
 		"/C/Users/rjp/Documents/lifeguard_testing/lifeguard-testing.sublime-project",
 		"/C/Users/rjp/Documents/l3dash/dictionary_setup.py",
@@ -705,7 +659,6 @@
 		"/C/Users/rjp/Documents/l3dash/app/templates/kit_booking.html",
 		"/C/Users/rjp/Documents/l3dash/app/forms.py",
 		"/C/Users/rjp/Documents/l3dash/app/views/index.py",
-		"/C/Users/rjp/Documents/clearwater/CC_node_decommission_tool/clearwater-decommission.sh",
 		"/C/Users/rjp/Documents/l3dash/app/views/kit_status.py",
 		"/C/Users/rjp/Documents/l3dash/app/templates/kit_status.html",
 		"/C/Users/rjp/Documents/l3dash/l3dash.sublime-project",
@@ -795,18 +748,7 @@
 		"/C/Users/rjp/Documents/clearwater/health_tool/UI_prototype.py",
 		"/C/Users/rjp/Documents/clearwater/health_tool/Requirements.txt",
 		"/C/Users/rjp/Documents/clearwater/health_tool/curses_test.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/viewers.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/cursesmock2.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/snmpy.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/curses_mock.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/curses_script2.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/script.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/Viewer.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/Checkers.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/design_phase_1.txt",
-		"/C/Users/rjp/Documents/clearwater/health_tool/requirements.tex",
-		"/C/Users/rjp/Documents/clearwater/health_tool/curses_script.py",
-		"/C/Users/rjp/Documents/clearwater/health_tool/.gitattributes"
+		"/C/Users/rjp/Documents/clearwater/health_tool/viewers.py"
 	],
 	"find":
 	{
@@ -825,6 +767,57 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"perimeta",
+			"dropdown",
+			"cc3",
+			"l3",
+			"L3-CC",
+			"(.*\\n){2}",
+			"(.*\\n){10}",
+			"$?",
+			"$",
+			"$?",
+			"$1",
+			"('",
+			"point_perimeta",
+			"perimeta",
+			"check_",
+			"point_perimeta",
+			"perimeta",
+			"NULL",
+			"log",
+			"book_ccf",
+			"release_volte_kit",
+			"CCFKitBookingForm",
+			"ccf",
+			"l3_vt",
+			"vol",
+			"vt",
+			"v",
+			"volte",
+			"vt2",
+			"deployables",
+			"update_deployment_availability",
+			"bookings",
+			"life",
+			"log_kit_release(",
+			"generate_",
+			"generate_tooltip",
+			"generate_clearwater",
+			"action=",
+			"dcm1",
+			"log_kit_release",
+			"VOLTE",
+			"clearwater",
+			"vt_",
+			"vt2_",
+			"vt_",
+			"vt",
+			"clearwater_deployments",
+			"release_clearwater_k",
+			"release_clearwater_kkit",
+			"clearwater_deplo",
+			"clearwater",
 			"generate_perimeta_release_tooltip",
 			"pointing at",
 			"pointing at ",
@@ -901,65 +894,18 @@
 			"lifeguard",
 			"#",
 			"b",
-			"bf",
-			"bold",
-			"items",
-			"hover",
-			".btn.btn-primary",
-			"float",
-			"login_user",
-			"logout_user",
-			"Please log in to access this page.",
-			"sudo",
-			"[[",
-			"]]]",
-			"[[[",
-			"if \\[(.*)\\]",
-			"\\[(.*)\\]",
-			"\\[.*\\]",
-			"add_error_info",
-			"GOOD",
-			"            Colour PAIR guide BY pair index:\n",
-			"PAIR",
-			"curses",
-			"STATS_DISPLAYED",
-			"INFO_DICT",
-			"fetch_code_count",
-			"self.oid_dictionary",
-			"stats_dictionary",
-			"STATS",
-			"'''",
-			".format",
-			"format",
-			"( *)(.*) = snmp.get\\(.*\\)",
-			"( *)(.*) = snmp.get\\('.1.3.6.1.4.1.2021.11.50.0'\\)",
-			" * .* = snmp.get\\('.1.3.6.1.4.1.2021.11.50.0'\\)",
-			" *.* = snmp.get\\('.1.3.6.1.4.1.2021.11.50.0'\\)",
-			".* = snmp.get('.1.3.6.1.4.1.2021.11.50.0')",
-			" *.* = snmp.get('.1.3.6.1.4.1.2021.11.50.0')",
-			"write_status",
-			"health_addition",
-			"max_cpu",
-			"max_disk",
-			"Args",
-			"Input",
-			"log_",
-			"$?",
-			"done",
-			"sudo",
-			"###############################################################################",
-			"sprout",
-			"headings",
-			"UI_prototype",
-			"] \\+= \\((.*)\\)",
-			"] \\+= \\[(.*)\\]"
+			"bf"
 		],
-		"highlight": true,
+		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"volte",
+			"vt2_",
+			"vt_",
+			"vt2",
 			"clearwater_form",
 			"bookings['clearwater']",
 			"fully_unbooked",
@@ -1025,244 +971,13 @@
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/templates/kit_management.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10645,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1478,
-								1478
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 76.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/templates/maintenance.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 77,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								77,
-								77
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/kit_management.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 843,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								246,
-								246
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/kit_booking.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8711,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4791,
-								4791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1750.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/static/scripts/kit_booking_input.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2814,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "dictionary_setup.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6831,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5869,
-								5869
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1794.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/forms.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4642,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								196,
-								196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1454.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/static/scripts/kit_release_button_links.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1630,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								269,
-								269
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1283,18 +998,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -1326,12 +1034,76 @@
 		"selected_items":
 		[
 			[
+				"do",
+				"app\\templates\\egg\\do_not_open.html"
+			],
+			[
+				"life",
+				"app\\templates\\lifeguards.html"
+			],
+			[
+				"viewf",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"view",
+				"app\\views\\views.py"
+			],
+			[
+				"index",
+				"app\\views\\index.py"
+			],
+			[
+				"inde",
+				"app\\templates\\index.html"
+			],
+			[
 				"form",
 				"app\\forms.py"
 			],
 			[
-				"kit",
+				"where",
+				"app\\views\\whereabouts.py"
+			],
+			[
+				"run",
+				"run.py"
+			],
+			[
+				"function",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"kit_boo",
 				"app\\views\\kit_booking.py"
+			],
+			[
+				"forms",
+				"app\\forms.py"
+			],
+			[
+				"kit",
+				"app\\views\\kit_management.py"
+			],
+			[
+				"kit_mana",
+				"app\\templates\\kit_management.html"
+			],
+			[
+				"views",
+				"app\\views\\views.py"
+			],
+			[
+				"vie",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"func",
+				"app\\views\\viewfunctions.py"
+			],
+			[
+				"dict",
+				"dictionary_setup.py"
 			],
 			[
 				"kitjs",
@@ -1344,10 +1116,6 @@
 			[
 				"set",
 				"dictionary_setup.py"
-			],
-			[
-				"func",
-				"app\\views\\viewfunctions.py"
 			],
 			[
 				"kit_m",
@@ -1366,24 +1134,12 @@
 				"app\\static\\scripts\\kit_booking_input.js"
 			],
 			[
-				"run",
-				"lifeguard_testing\\run.py"
-			],
-			[
 				"dic",
 				"dictionary_setup.py"
 			],
 			[
-				"function",
-				"app\\views\\viewfunctions.py"
-			],
-			[
 				"kit_book",
 				"app\\templates\\kit_booking.html"
-			],
-			[
-				"inde",
-				"app\\templates\\index.html"
 			],
 			[
 				"kith",
@@ -1392,10 +1148,6 @@
 			[
 				"ki_m",
 				"app\\templates\\kit_management.html"
-			],
-			[
-				"views",
-				"app\\views\\views.py"
 			],
 			[
 				"",
@@ -1438,10 +1190,6 @@
 				"views\\kit_status.py"
 			],
 			[
-				"kit_boo",
-				"templates\\kit_booking.html"
-			],
-			[
 				"kitst",
 				"templates\\kit_status.html"
 			],
@@ -1474,10 +1222,6 @@
 				"views\\kit_booking.py"
 			],
 			[
-				"view",
-				"views\\viewfunctions.py"
-			],
-			[
 				"fun",
 				"views\\viewfunctions.py"
 			],
@@ -1506,10 +1250,6 @@
 				"templates\\base.html"
 			],
 			[
-				"forms",
-				"forms.py"
-			],
-			[
 				"boot",
 				"static\\css\\bootstrap-3.3.6-dist\\css\\bootstrap.css"
 			],
@@ -1522,16 +1262,8 @@
 				"views\\index.py"
 			],
 			[
-				"life",
-				"app\\templates\\lifeguards.html"
-			],
-			[
 				"e",
 				"app\\views\\EE.py"
-			],
-			[
-				"where",
-				"app\\templates\\whereabouts.html"
 			],
 			[
 				"init",
